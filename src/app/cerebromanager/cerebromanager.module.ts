@@ -26,6 +26,6 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ToolbarComponent, MainContainerComponent, SideNavComponent, FeatureToolbarComponent]
+  declarations: [CerebroSMAppComponent, ToolbarComponent, MainContainerComponent, SideNavComponent, FeatureToolbarComponent]
 })
 export class CerebromanagerModule { }
