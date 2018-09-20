@@ -1,19 +1,7 @@
+
 $iconWidth: 56px;
 
-.link-btn {
-  background-color: ghostwhite;
-  background-repeat: no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
-  outline:none;
-  font-size: 0.8em;
-  padding: 0px;
-}
 
-.my-flat-button.mat-raised-button {
-  box-shadow: none;
-}
 .sidenav-toggle {
   display: none;
   padding: 0;
@@ -33,4 +21,15 @@ $iconWidth: 56px;
     line-height: $iconWidth;
     color: white;
   }
+}
+.io{
+  padding-left: 10px;
+}
+.some-icon{
+  float: left;
+  margin-left: 5px;
+}
+.some-icon1{
+  float: left;
+  margin-left: 320px;
 }
