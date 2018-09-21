@@ -1,9 +1,15 @@
-<mat-toolbar >
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle color="primary" value="bold">Create Feature</mat-button-toggle>
-        <mat-button-toggle value="italic">Create Release</mat-button-toggle>
+<mat-toolbar color="primary">
+ 
+        <button mat-raised-button mat-stroked-button color="primary" style=color:rgb(245,245,245) class="mat-elevation-z5" aria-labelledby class="io" (click)="openDialog()">Create Feature</button> 
+        <button mat-raised-button color="primary" style=color:rgb(194,192,189) class="mat-elevation-z5" aria-labelledby class="io" >Create Release</button>
+        <button mat-raised-button color="primary" style=color:rgb(194,192,189) class="mat-elevation-z5" class="io">Create Sprint</button>
+        <button mat-raised-button color="primary" style=color:rgb(194,192,189) class="mat-elevation-z5" class="io">Create</button>
         
-        <mat-button-toggle value="underline">Create Sprint</mat-button-toggle>
-      </mat-button-toggle-group>
-  
+        <button mat-icon-button class="some-icon1">
+            <mat-icon aria-label="Example icon-button with a heart icon"  >notifications_active</mat-icon>
+        </button>
+        <button mat-icon-button class="some-icon">
+            <mat-icon aria-label="Example icon-button with a heart icon" >person</mat-icon>
+        </button>
+      
 </mat-toolbar>
