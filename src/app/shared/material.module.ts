@@ -1,4 +1,7 @@
 import { NgModule } from '@angular/core';
+import './polyfills';
+import {CdkTreeModule} from '@angular/cdk/tree';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
@@ -68,7 +71,8 @@ import { CdkTableModule } from '@angular/cdk/table';
         MatTabsModule,
         MatToolbarModule,
         MatTooltipModule,
-        CdkTableModule
+        CdkTableModule,
+        CdkTreeModule,
   ],
   exports: [
     MatAutocompleteModule,

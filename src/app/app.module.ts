@@ -15,8 +15,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CerebroSMAppComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
