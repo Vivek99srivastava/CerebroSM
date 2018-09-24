@@ -1,0 +1,19 @@
+<mat-sidenav-container class="SMmenu-container">
+    <mat-sidenav #sidenav class="SMmenu-sidenav mat-elevation-z20" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
+            <mat-toolbar color="primary">Cerebro</mat-toolbar>
+            <mat-list>
+                    <mat-list-item> Pepper </mat-list-item>
+                    <mat-list-item> Salt </mat-list-item>
+                    <mat-list-item> Paprika </mat-list-item>
+                   </mat-list>
+            
+        </mat-sidenav>
+
+        <div class="SMmenu-container-content">
+                <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+                     
+                <!-- <app-feature-toolbar></app-feature-toolbar> -->
+                <router-outlet></router-outlet>
+           
+        </div>
+    </mat-sidenav-container>

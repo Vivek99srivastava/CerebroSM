@@ -1,0 +1,60 @@
+
+$iconWidth: 56px;
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  align: center;
+}
+
+.example-full-width {
+  width: 40%;
+}
+.example-full-width1 {
+  align: right;
+  width: 40%;
+}
+.example-full-width2 {
+  align: right;
+  width: 100%;
+}
+
+p {
+  font-family: Lato;
+}
+
+.container {
+  margin-top: 10px;
+}
+.sidenav-toggle {
+  display: none;
+  padding: 0;
+  margin: 10px;
+  min-width: $iconWidth;
+
+  @media (max-width: 720px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-icon {
+    font-size: 30px;
+    height: $iconWidth;
+    width: $iconWidth;
+    line-height: $iconWidth;
+    color: white;
+  }
+}
+.io{
+  padding-left: 10px;
+}
+.some-icon{
+  float: left;
+  margin-left: 5px;
+}
+.some-icon1{
+  float: left;
+  margin-left: 320px;
+}
