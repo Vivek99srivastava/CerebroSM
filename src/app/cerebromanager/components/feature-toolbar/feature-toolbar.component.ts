@@ -37,6 +37,7 @@ export class FeatureToolbarComponent {
     });
   }
 
+  
 
 }
 
@@ -56,3 +57,13 @@ export class DialogOverviewExampleDialog {
   }
 
 }
+
+
+
+
+//https://www.techiediaries.com/angular-material-dialogs/
+//https://www.techiediaries.com/topics/angular/
+//https://www.techiediaries.com/github-electron/angular2-and-electron-starters-and-boilerplates/
+
+
+
