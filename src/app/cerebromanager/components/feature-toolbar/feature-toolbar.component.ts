@@ -24,21 +24,12 @@ export class FeatureToolbarComponent {
   discription: string;
   attachment: string;
 
-
-  selectedValue: string;
-
-  features: Feature[] = [
-    {value: 'steak-0',viewValue: 'Cerebros'},
-    {value: 'steak-1',viewValue: 'Warp'},
-    {value: 'tacos-2',viewValue: 'Steak'}
-  ];
-
   constructor(public dialog: MatDialog) { }
-  openDialog(): void {
-    const dialogRef = this.dialog.open  (DialogOverviewExampleDialog, {
-      width: '1000px',
-      height:'500px',
-      data: {featurename: this.featureName, application: this.application}
+    openDialog(): void {
+      const dialogRef = this.dialog.open  (DialogOverviewExampleDialog, {
+       width: '1000px',
+       height:'500px',
+       data: {featurename: this.featureName, application: this.application}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -59,7 +50,16 @@ export class FeatureToolbarComponent {
 })
 export class DialogOverviewExampleDialog {
 
-  constructor(
+    selectedValue: string;
+
+    features: Feature[] = [
+      {value: 'steak-0',viewValue: 'Cerebros'},
+      {value: 'steak-1',viewValue: 'Warp'},
+      {value: 'tacos-2',viewValue: 'Steak'}
+    ];
+
+
+ constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: CreateFeatureData) {}
 
