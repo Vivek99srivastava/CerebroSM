@@ -11,6 +11,7 @@ import { DialogOverviewExampleDialog } from './components/feature-toolbar/featur
 import { MaterialModule } from '../shared/material.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
+import { CreateFeatureComponent } from './components/feature-toolbar/create-feature/create-feature.component';
 
 const routes: Routes = [
   { path: '',component: CerebroSMAppComponent, children:[
@@ -26,7 +27,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CerebroSMAppComponent, ToolbarComponent, MainContainerComponent, SideNavComponent, FeatureToolbarComponent,DialogOverviewExampleDialog],
+  declarations: [CerebroSMAppComponent, ToolbarComponent, MainContainerComponent, SideNavComponent, FeatureToolbarComponent,DialogOverviewExampleDialog, CreateFeatureComponent],
   entryComponents: [DialogOverviewExampleDialog]
 })
 export class CerebromanagerModule { }
