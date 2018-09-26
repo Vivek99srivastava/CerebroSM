@@ -15,6 +15,12 @@ this.mediaMatcher.addListener(mql => zone.run(() => this.mediaMatcher = mql));
 
   ngOnInit() {
   }
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+opened:boolean;
+  toggleMenu(){
+
+    this.opened = !this.opened;
+  }
 isScreenSmall(): boolean {
   return this.mediaMatcher.matches;
 }
