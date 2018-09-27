@@ -6,6 +6,16 @@ $iconWidth: 56px;
   max-width: 500px;
   width: 100%;
 }
+.matcard{
+  padding: 20px;
+}
+.setform{
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 2px;
+  border-color: blue;
+}
 
 .example-full-width {
   width: 40%;
@@ -15,12 +25,15 @@ $iconWidth: 56px;
 }
 .example-full-width2 {
   width: 100%;
+  line-height: 100%;
 }
 
 p {
   font-family: Lato;
 }
-
+.buttons{
+  padding-left: 350px;
+}
 .container {
   margin-top: 10px;
 }

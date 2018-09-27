@@ -11,7 +11,7 @@ import { DialogOverviewExampleDialog } from './components/feature-toolbar/featur
 //service import
 import { UserService } from './services/user.service';
 import { MaterialModule } from '../shared/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
 import { CreateFeatureComponent } from './components/feature-toolbar/create-feature/create-feature.component';
 import { CreateReleaseComponent } from './components/feature-toolbar/create-release/create-release.component';
@@ -20,8 +20,10 @@ import { CreateSprintComponent } from './components/feature-toolbar/create-sprin
 
 const routes: Routes = [
   { path: '',component: CerebroSMAppComponent, children:[
-    {  path:'',component:MainContainerComponent 
-  }]},
+    {  path:'',component: MainContainerComponent },
+    { path:'create-feature',component: CreateFeatureComponent },
+    { path:'create-userstory',component: CreateUserStoryComponent }
+]},
   { path: '**' , redirectTo:'' }
   ];
 
@@ -30,6 +32,7 @@ const routes: Routes = [
     CommonModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   providers:[
