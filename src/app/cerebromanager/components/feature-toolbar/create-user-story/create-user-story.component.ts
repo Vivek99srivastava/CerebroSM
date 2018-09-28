@@ -13,7 +13,17 @@ export interface Feature {
 export class CreateUserStoryComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   email1 = new FormControl('', [Validators.email]);
+  fname = new FormControl('', [Validators.required]);
+  description = new FormControl('', [Validators.required]);
   selectedValue: string;
+
+  getErrordescribe(){
+    return this.fname.hasError('required') ? 'Description required' :'';
+  }
+
+  getErrorfnameMessage(){
+    return this.fname.hasError('required') ? 'You must enter feature name' :'';
+  }
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :

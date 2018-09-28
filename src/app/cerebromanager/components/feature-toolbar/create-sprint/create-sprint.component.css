@@ -1,0 +1,95 @@
+
+$iconWidth: 56px;
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.titlebar{
+  display: flex;
+  flex: 1;
+  height: 90%;
+}
+.matcard{
+  padding: 20px;
+}
+h2 {
+  background-color: rgb(30, 30, 34);
+  height: 40px;
+  color: rgb(255, 255, 255);
+  padding-top: 4px; 
+  padding-left: 15px;
+  width: 21%;
+  
+  
+}
+.setform{
+  
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 2px;
+  border-color: blue;
+}
+
+.example-full-width {
+  width: 40%;
+  padding-left: 3%
+}
+.example-full-width1 {
+  width: 40%;
+  padding-left: 13%
+}
+.example-full-width2 {
+  width: 93%;
+  padding-left: 3%;
+}
+
+p {
+  font-family: Lato;
+}
+.buttons{
+  padding-left: 395px;
+}
+.container {
+  margin-top: 10px;
+  padding-left: 3%;
+}
+.sidenav-toggle {
+  display: none;
+  padding: 0;
+  margin: 10px;
+  min-width: $iconWidth;
+
+  @media (max-width: 720px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-icon {
+    font-size: 30px;
+    height: $iconWidth;
+    width: $iconWidth;
+    line-height: $iconWidth;
+    color: white;
+  }
+}
+.io{
+  padding-left: 10px;
+}
+.some-icon{
+  float: left;
+  margin-left: 5px;
+}
+.some-icon1{
+  float: left;
+  margin-left: 320px;
+}
+table {
+  width: 93%;
+  padding-left: 3%;
+  margin-left: 3%;
+}
+
+

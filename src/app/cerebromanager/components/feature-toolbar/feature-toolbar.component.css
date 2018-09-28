@@ -53,5 +53,8 @@ p {
 }
 .some-icon1{
   float: left;
-  margin-left: 320px;
+  margin-left: 25px;
+}
+.search{
+  padding: 115%;
 }

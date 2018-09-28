@@ -18,11 +18,15 @@ import { CreateReleaseComponent } from './components/feature-toolbar/create-rele
 import { CreateUserStoryComponent } from './components/feature-toolbar/create-user-story/create-user-story.component';
 import { CreateSprintComponent } from './components/feature-toolbar/create-sprint/create-sprint.component';
 
+// Routing sidenav to main-container
+
 const routes: Routes = [
   { path: '',component: CerebroSMAppComponent, children:[
     {  path:'',component: MainContainerComponent },
     { path:'create-feature',component: CreateFeatureComponent },
-    { path:'create-userstory',component: CreateUserStoryComponent }
+    { path:'create-userstory',component: CreateUserStoryComponent },
+    { path:'create-sprint',component: CreateSprintComponent },
+    { path:'create-release',component: CreateReleaseComponent }
 ]},
   { path: '**' , redirectTo:'' }
   ];

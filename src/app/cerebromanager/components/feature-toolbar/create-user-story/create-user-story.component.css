@@ -14,6 +14,16 @@ $iconWidth: 56px;
 .matcard{
   padding: 20px;
 }
+h2 {
+  background-color: rgb(30, 30, 34);
+  height: 40px;
+  color: rgb(255, 255, 255);
+  padding-top: 4px; 
+  padding-left: 15px;
+  width: 21%;
+  
+  
+}
 .setform{
   
   padding-left: 50px;
@@ -24,13 +34,15 @@ $iconWidth: 56px;
 
 .example-full-width {
   width: 40%;
+  padding-left: 3%
 }
 .example-full-width1 {
   width: 40%;
+  padding-left: 13%
 }
 .example-full-width2 {
-  width: 100%;
-  
+  width: 93%;
+  padding-left: 3%;
 }
 
 p {
@@ -41,6 +53,7 @@ p {
 }
 .container {
   margin-top: 10px;
+  padding-left: 3%;
 }
 .sidenav-toggle {
   display: none;
