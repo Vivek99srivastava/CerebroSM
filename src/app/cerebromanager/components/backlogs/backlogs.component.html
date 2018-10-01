@@ -1,0 +1,79 @@
+<div class="backlogsdialog">
+<h2>Backlogs</h2>
+    <!-- backlog filter -->
+    <mat-form-field class="backlog-filter">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Quick Finder">
+    </mat-form-field><mat-icon>search</mat-icon>
+
+    <div class="mat-elevation-z8" class="tablelayout">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+              <!-- Item Column -->
+               <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Item </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                </ng-container>
+
+              <!-- Priority -->
+                <ng-container matColumnDef="priority">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Priority </th>
+                <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.priority}} </td>
+                </ng-container>
+
+              <!-- Backlogs item -->
+                <ng-container matColumnDef="backlogs">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Backlogs Item </th>
+                <td mat-cell *matCellDef="let row"> {{row.backlogs}} </td>
+                </ng-container>
+
+              <!-- Feature -->
+                <ng-container matColumnDef="feature">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Feature </th>
+                <td mat-cell *matCellDef="let row"> {{row.features}} </td>
+                </ng-container>
+
+              <!-- Points Column -->
+                <ng-container matColumnDef="points">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Points </th>
+                <td mat-cell *matCellDef="let row"> {{row.progress}} </td>
+                </ng-container>
+
+                <!-- Assigned to Column -->
+                 <ng-container matColumnDef="assignedto">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Assigned To </th>
+                  <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                  </ng-container>
+
+                 <!-- Sprint to Column -->
+                 <ng-container matColumnDef="sprint">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Sprint</th>
+                  <td mat-cell *matCellDef="let row"> {{row.sprint}} </td>
+                  </ng-container>
+
+                  <!-- Status to Column -->
+                   <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Status</th>
+                    <td mat-cell *matCellDef="let row"><mat-progress-bar mode="determinate" value="{{row.progress}}" color="warn" class="progress1"></mat-progress-bar> {{row.progress}}%</td>
+                    </ng-container>
+
+                   <!-- Attachment to Column -->
+                    <ng-container matColumnDef="attachment">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Attachment</th>
+                    <td mat-cell *matCellDef="let row"> <mat-icon>attachment</mat-icon></td>
+                    </ng-container>
+<!-- 
+                  Color Column
+                   <ng-container matColumnDef="color">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Color </th>
+                    <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </td>
+                    </ng-container> -->
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+              </tr>
+            </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+    </div>
+
