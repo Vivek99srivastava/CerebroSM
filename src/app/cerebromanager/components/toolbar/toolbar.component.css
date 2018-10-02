@@ -33,3 +33,6 @@ $iconWidth: 56px;
   float: left;
   margin-left: 320px;
 }
+.toolbar{
+  position: relative;
+}

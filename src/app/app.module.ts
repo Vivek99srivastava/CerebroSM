@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CerebroSMAppComponent } from './cerebromanager/cerebro-sm-app.component';
 import { CerebromanagerModule } from 'src/app/cerebromanager/cerebromanager.module';
 
+
 //Routing routes
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent
+    
   ],
   imports: [
     BrowserModule,
