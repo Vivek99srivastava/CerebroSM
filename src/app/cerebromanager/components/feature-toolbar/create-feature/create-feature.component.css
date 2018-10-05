@@ -19,13 +19,16 @@ $iconWidth: 56px;
 
 .example-full-width {
   width: 40%;
+  padding-left: 1%
 }
 .example-full-width1 {
   width: 40%;
+  padding-left: 13%
 }
 .example-full-width2 {
-  width: 100%;
+  width: 96%;
   line-height: 100%;
+  padding-left: 1%;
 }
 
 p {

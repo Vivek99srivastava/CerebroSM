@@ -1,3 +1,21 @@
-<p>
-  active-sprints works!
-</p>
+<br>
+<mat-card class="io"><h4>Active Sprints</h4></mat-card>
+<br>
+
+<div class="kanban-wrapper" fxLayout="row" fxLayoutGap="10px" fxLayoutWrap="wrap">
+    <div class="kanban-container" fxFlex="calc(33-35px)" *ngFor="let data of kanban">
+      <div class="kanban-header" fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="type" >{{data.header}}
+        {{data.data.length}}</div>
+      </div>
+      <div class="kanban-data-container" *ngFor="let taskData of data.data">
+        <div>{{taskData.status}}</div>
+        <div>{{taskData.id}}</div>
+        <div>{{taskData.title}}</div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+   

@@ -1,3 +1,56 @@
-<p>
-  log-history works!
-</p>
+<div class="backlogsdialog">
+    <h2>Log History</h2>
+        <!-- backlog filter -->
+        <mat-form-field class="backlog-filter">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Quick Finder">
+        </mat-form-field><mat-icon>search</mat-icon>
+    
+        <div class="mat-elevation-z8" class="tablelayout">
+                <table mat-table [dataSource]="dataSource" matSort>
+    
+                  <!-- Id Column -->
+                   <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> ID  </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                    </ng-container>
+    
+                  <!-- Log -->
+                    <ng-container matColumnDef="log">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Log </th>
+                    <td mat-cell *matCellDef="let row" > {{row.log}} </td>
+                    </ng-container>
+    
+                  <!-- Log Type -->
+                    <ng-container matColumnDef="logtype">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Log Type </th>
+                    <td mat-cell *matCellDef="let row"> {{row.logtype}} </td>
+                    </ng-container>
+    
+                  <!-- Application -->
+                    <ng-container matColumnDef="application">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Application </th>
+                    <td mat-cell *matCellDef="let row"> {{row.application}} </td>
+                    </ng-container>
+    
+                  <!-- Created By -->
+                     <ng-container matColumnDef="createdBy">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Created By </th>
+                      <td mat-cell *matCellDef="let row"> {{row.createdBy}} </td>
+                      </ng-container>
+    
+                  <!-- Created Date -->
+                     <ng-container matColumnDef="createdDate">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Created Date</th>
+                      <td mat-cell *matCellDef="let row"> {{row.createdDate}} </td>
+                      </ng-container>
+    
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </tr>
+                </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+        </div>
+    
+    

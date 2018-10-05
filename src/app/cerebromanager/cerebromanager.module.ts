@@ -20,6 +20,7 @@ import { WorklogsComponent } from './components/worklogs/worklogs.component';
 import { LogHistoryComponent } from './components/log-history/log-history.component';
 import { IssuesComponent } from './components/issues/issues.component';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 //cerebroSm-components
 import { CerebroSMAppComponent } from './cerebro-sm-app.component';
@@ -32,9 +33,19 @@ import { UserService } from './services/user.service';
 import { MaterialModule } from '../shared/material.module';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
 
 // Routing sidenav to main-container
+
+
+// For FusionChart   
+// import * as FusionCharts from 'fusioncharts';  
+// import * as Charts from 'fusioncharts/fusioncharts.charts';  
+// import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';  
+// import { FusionChartsModule } from 'angular4-fusioncharts';  
+// FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme); 
+
+
 
 const routes: Routes = [
   { path: '',component: CerebroSMAppComponent, children:[
@@ -61,6 +72,8 @@ const routes: Routes = [
     CommonModule,
     MaterialModule,
     FormsModule,
+    HttpClientModule,
+    FlexLayoutModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],

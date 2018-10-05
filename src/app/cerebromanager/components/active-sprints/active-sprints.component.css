@@ -1,0 +1,64 @@
+h2 {
+    flex:auto;
+    background-color: rgb(30, 30, 34);
+    height: 40px;
+    color: rgb(255, 255, 255);
+    padding-top: 0.5%;  
+    padding-left: 2%;
+    width: 19%;
+  }
+
+  
+  .todo{
+    width:20%;
+    height: 70%;
+  }
+  .inprogress{
+    width:20%;
+    height: 70%;
+  }
+  .done{
+    width:20%;
+    height: 70%;
+  }
+  .io{
+    background-color: black;
+    color:white;
+    width:15%;
+    height:5px;
+    padding-top: 9px;  
+  }
+  .kanban-wrapper {
+    padding: 25px;
+    margin: 2%;
+  }
+  .kanban-container {
+    background-color: #b3b3b3;
+     padding: 2px; 
+
+    /* border-radius: 2px; */
+    /* min-width: 300px;
+    overflow: hidden;
+    min-height: 400px; */
+  }
+  .kanban-header {
+        background-color: rgb(34, 33, 33);
+        font-size: 15px;
+        float: center;
+        
+        /* font-family: RobotoBold, sans-serif; */
+        height: 50px;
+        color: aliceblue;
+        
+    }
+  .kanban-data-container {
+        background-color: white;
+        border-radius: 5px;
+        margin-top: 15px;
+        padding: 5px;
+        cursor: pointer;
+    }
+.type{
+  float: center;
+  align-content: center;
+}

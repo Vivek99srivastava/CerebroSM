@@ -1,3 +1,30 @@
-<p>
-  worklogs works!
-</p>
+<h2>Work Logs</h2>
+<div> 
+
+<h4>OverAll Work done-55%</h4>
+<mat-progress-bar mode="determinate" value="55" color="warn" class="progress"></mat-progress-bar>
+<div class="sprints">
+      <mat-form-field>
+        <mat-select placeholder="Sprints">
+          <mat-option *ngFor="let sprint of sprints" [value]="sprint.value">
+            {{sprint.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+ 
+    <mat-form-field>
+      <mat-select placeholder="User Story">
+        <mat-option *ngFor="let user of users" [value]="user.value1">
+          {{user.viewValue1}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+   
+        <mat-form-field>
+          <mat-select placeholder="Status">
+          To do
+          </mat-select>
+        </mat-form-field>
+      </div>
+     
+      

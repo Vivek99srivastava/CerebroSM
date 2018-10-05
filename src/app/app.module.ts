@@ -5,7 +5,8 @@ import { RouterModule,Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CerebroSMAppComponent } from './cerebromanager/cerebro-sm-app.component';
 import { CerebromanagerModule } from 'src/app/cerebromanager/cerebromanager.module';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 //Routing routes
 
@@ -24,6 +25,8 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     CerebromanagerModule,
+    HttpClientModule,
+    FlexLayoutModule,
     RouterModule.forRoot(routes)
     
   ],

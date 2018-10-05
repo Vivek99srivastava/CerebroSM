@@ -1,0 +1,43 @@
+h2 {
+    flex:auto;
+    background-color: rgb(30, 30, 34);
+    height: 40px;
+    color: rgb(255, 255, 255);
+    padding-top: 0.5%;  
+    padding-left: 2%;
+    width: 19%;
+    
+
+  }
+  h4{
+      padding-left: 25px;
+  }
+  .Sprints{
+    padding-left: 5px;
+  }
+  
+  .progress{
+      
+      height: 20px;
+      width: 90%;
+      padding-left:28px;
+  }
+  mat-form-field{
+      padding: 3%;
+      padding-top: 1%;
+      width: 25%;
+  }
+
+  .tables {
+    width: 90%;
+    padding-left:48px;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  .headercell{
+    height: 50px;
+    background-color: rgb(39, 40, 66);
+    color: azure
+}

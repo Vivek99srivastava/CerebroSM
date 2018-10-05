@@ -1,3 +1,102 @@
-<p>
-  issues works!
-</p>
+<div class="backlogsdialog">
+    <h2>Issues</h2>
+        <!-- backlog filter -->
+        <mat-form-field class="backlog-filter">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Quick Finder">
+        </mat-form-field><mat-icon>search</mat-icon>
+    
+        <div class="mat-elevation-z8" class="tablelayout">
+                <table mat-table [dataSource]="dataSource" matSort>
+    
+                  <!-- Item Column -->
+                   <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> US-ID </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                    </ng-container>
+    
+                  <!-- Priority -->
+                    <ng-container matColumnDef="issueid">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> ISSUE</th>
+                    <td mat-cell *matCellDef="let row"> {{row.issueid}} </td>
+                    </ng-container>
+    
+                  <!-- Backlogs item -->
+                    <ng-container matColumnDef="sprint">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> SPRINT </th>
+                    <td mat-cell *matCellDef="let row"> {{row.sprint}} </td>
+                    </ng-container>
+    
+                  <!-- Feature -->
+                    <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> TITLE </th>
+                    <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+                    </ng-container>
+    
+                  <!-- Points Column -->
+                    <ng-container matColumnDef="detectedBy">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> DETECTED-BY </th>
+                    <td mat-cell *matCellDef="let row"> {{row.detectedBy}} </td>
+                    </ng-container>
+    
+                    <!-- Assigned to Column -->
+                     <ng-container matColumnDef="type">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> TYPE </th>
+                      <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+                      </ng-container>
+    
+                     <!-- Sprint to Column -->
+                     <ng-container matColumnDef="priority">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> PRIORITY</th>
+                      <td mat-cell *matCellDef="let row"> {{row.priority}} </td>
+                      </ng-container>
+    
+                      <!-- Status to Column -->
+                       <ng-container matColumnDef="assignedTo">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> ASSIGNED-TO</th>
+                        <td mat-cell *matCellDef="let row"> {{row.assignedTo}}</td>
+                        </ng-container>
+
+                         <!-- Status to Column -->
+                       <ng-container matColumnDef="status">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> STATUS </th>
+                          <td mat-cell *matCellDef="let row">{{row.status}}</td>
+                          </ng-container>
+    
+                           <!-- Status to Column -->
+                       <ng-container matColumnDef="rootCause">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> ROOT-CAUSE</th>
+                          <td mat-cell *matCellDef="let row"> {{row.rootCause}}</td>
+                          </ng-container>
+                             <!-- lastupdated to Column -->
+                       <ng-container matColumnDef="lastUpdated">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> LAST-UPDATED</th>
+                          <td mat-cell *matCellDef="let row"> {{row.lastUpdated}}</td>
+                          </ng-container>
+
+                       <!-- Attachment to Column -->
+                        <ng-container matColumnDef="attachment">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> ATTACHMENT</th>
+                        <td mat-cell *matCellDef="let row"> <mat-icon>attachment</mat-icon></td>
+                        </ng-container>
+                         <!-- Comment to Column -->
+                         <ng-container matColumnDef="comment">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> COMMENTS</th>
+                            <td mat-cell *matCellDef="let row"> <mat-icon>attachment</mat-icon></td>
+                            </ng-container>
+    <!-- 
+                      Color Column
+                       <ng-container matColumnDef="color">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Color </th>
+                        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </td>
+                        </ng-container> -->
+    
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </tr>
+                </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+        </div>
+    
+    

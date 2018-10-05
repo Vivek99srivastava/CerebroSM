@@ -1,3 +1,72 @@
-<p>
-  releases works!
-</p>
+<div class="backlogsdialog">
+    <h2>Release</h2>
+        <!-- backlog filter -->
+        <mat-form-field class="backlog-filter">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Quick Finder">
+        </mat-form-field><mat-icon>search</mat-icon>
+        <mat-form-field class="backlog-filter">
+            <input matInput (keyup)="applyFilter1($event.target.value)" placeholder="Quick Finder">
+          </mat-form-field><mat-icon>search</mat-icon>
+    
+        <div class="mat-elevation-z8" class="tablelayout">
+                <table mat-table [dataSource]="dataSource" matSort>
+    
+                  <!-- Id Column -->
+                   <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> RELEASE ID  </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                    </ng-container>
+    
+                  <!-- Release name -->
+                    <ng-container matColumnDef="rname">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> RELEASE NAME </th>
+                    <td mat-cell *matCellDef="let row" > {{row.rname}} </td>
+                    </ng-container>
+    
+                  <!-- Version Type -->
+                    <ng-container matColumnDef="version">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> VERSION </th>
+                    <td mat-cell *matCellDef="let row"> {{row.version}} </td>
+                    </ng-container>
+    
+                  <!-- Planned date -->
+                    <ng-container matColumnDef="planneddate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> PLANNED DATE </th>
+                    <td mat-cell *matCellDef="let row"> {{row.planneddate}} </td>
+                    </ng-container>
+    
+                  <!-- Created By -->
+                     <ng-container matColumnDef="actualdate">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> ACTUAL DATE </th>
+                      <td mat-cell *matCellDef="let row"> {{row.actualdate}} </td>
+                      </ng-container>
+    
+                  <!-- Notes Date -->
+                     <ng-container matColumnDef="notes">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> NOTES </th>
+                      <td mat-cell *matCellDef="let row"> {{row.notes}} </td>
+                      </ng-container>
+
+                  <!-- Attachment to Column -->
+                    <ng-container matColumnDef="attachment">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Attachment</th>
+                        <td mat-cell *matCellDef="let row"> <mat-icon>attachment</mat-icon></td>
+                        </ng-container>
+
+                   <!-- Remove to Column -->
+                   <ng-container matColumnDef="remove">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Remove</th>
+                      <td mat-cell *matCellDef="let row"> <mat-icon>
+                          delete_forever</mat-icon></td>
+                      </ng-container>
+    
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </tr>
+                </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+        </div>
+    
+    
