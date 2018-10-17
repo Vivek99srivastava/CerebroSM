@@ -1,11 +1,12 @@
 <br>
-<mat-card class="io"><h4>Active Sprints</h4></mat-card>
+<mat-card class="io" fxLayoutAlign="start stretch"><h3>Active Sprints</h3></mat-card>
 <br>
 
-<div class="kanban-wrapper" fxLayout="row" fxLayoutGap="10px" fxLayoutWrap="wrap">
-    <div class="kanban-container" fxFlex="calc(33-35px)" *ngFor="let data of kanban">
-      <div class="kanban-header" fxLayout="row" fxLayoutAlign="space-between center">
-        <div class="type" >{{data.header}}
+<mat-card>
+<div class="kanban-wrapper" fxLayout="row" fxLayoutGap="5px" fxLayoutWrap="wrap">
+    <div class="kanban-container" fxFlex="calc(33-34px)" *ngFor="let data of kanban" >
+      <div class="kanban-header" fxLayout="row" fxLayoutAlign="space-between center" >
+        <div class="type" fxLayoutAlign="start center" ><h5>{{data.header}}</h5></div><div class="typeleft" fxLayoutAlign="end none">
         {{data.data.length}}</div>
       </div>
       <div class="kanban-data-container" *ngFor="let taskData of data.data">
@@ -15,6 +16,7 @@
       </div>
     </div>
   </div>
+  </mat-card>
   
   
 

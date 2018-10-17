@@ -8,21 +8,23 @@
           </mat-toolbar-row>
         </mat-toolbar> -->
 
-  <h2>Create UserStory</h2>
+        <br>
+        <mat-card class="io" fxLayoutAlign="start stretch"><h3>Create User Story</h3></mat-card>
+        <br>
  
   <div class="setform">
 
     <mat-dialog-content class="mat-typography">
-      <form class="example-form">
+      <form class="example-form" novalidate [formGroup]="createuserstory">
             <mat-form-field class="example-full-width" >
-                <input matInput placeholder="Feature Name" [formControl]="fname" required>
-                <mat-error *ngIf="fname.invalid">{{getErrorfnameMessage()}}</mat-error>
+                <input matInput placeholder="Feature Name" formControlName="fnames" required>
+                <mat-error *ngIf="createuserstory.controls.fnames.hasError('required')">Feature name required</mat-error>
             </mat-form-field>
           
              <!-- space--> 
   
             <mat-form-field class="example-full-width1">
-               <mat-select placeholder="Priority" [(ngModel)]="selectedValue" name="feature" required>
+               <mat-select placeholder="Priority" [(ngModel)]="selectedValue" formControlName="priority" required>
                   <mat-option *ngFor="let feature of features" [value]="feature.value">
                     {{feature.viewValue}}
                    </mat-option>
@@ -30,16 +32,16 @@
             </mat-form-field>
   
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Requestor Name">
+                <input matInput placeholder="Requestor Name" formControlName="requestor">
             </mat-form-field>
                          <!-- space-->
            <mat-form-field class="example-full-width1">
-                <input matInput placeholder="Enter your email" [formControl]="email" required>
-                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                <input matInput placeholder="Enter your email" formControlName="email" required>
+                  <mat-error *ngIf="createuserstory.controls.email.hasError('required')">Email required</mat-error>
            </mat-form-field>
   
            <mat-form-field class="example-full-width">
-               <input matInput placeholder="Alternate email" [formControl]="email1" >
+               <input matInput placeholder="Alternate email" formControlName="aemail" >
                 <mat-error *ngIf="email1.invalid">{{getErroraltMessage()}}</mat-error>
            </mat-form-field>
     
@@ -47,7 +49,7 @@
                               <!-- space-->
 
           <mat-form-field class="example-full-width1">
-              <input matInput placeholder="Phone Number">
+              <input matInput placeholder="Phone Number" formControlName="phone">
                  <mat-icon matSuffix>phone</mat-icon>
         
           </mat-form-field><br>
@@ -56,8 +58,8 @@
 
 
          <mat-form-field class="example-full-width2">
-           <textarea matInput placeholder="Description" [formControl]="description" required></textarea>
-           <mat-error *ngIf="description.invalid">{{getErrordescribe()}}</mat-error>
+           <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+           <mat-error *ngIf="createuserstory.controls.description.hasError('required')">Description required</mat-error>
          </mat-form-field>
          
   
@@ -89,7 +91,7 @@
     </div>
           <mat-dialog-actions class="buttons">
               <button mat-flat-button color="warn" [routerLink]="['/']" >Cancel</button>&nbsp;
-              <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
+              <button  mat-raised-button color="primary" (click)="onSubmit()">Create</button>
           </mat-dialog-actions>
   </form>
   

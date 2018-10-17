@@ -3,7 +3,7 @@
            
 <!-- <mat-sidenav-container class="SMmenu-container">
     <mat-sidenav #sidenav class="SMmenu-sidenav mat-elevation-z20" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'"  style="background-color:wheat"> -->
-      <mat-toolbar color="primary">Cerebro</mat-toolbar>
+      <mat-toolbar color="primary"><div class="headerleft">Cerebro</div><div class="headerright"><mat-icon [routerLink]="['/home']">home</mat-icon></div></mat-toolbar>
 
             <mat-accordion>
                <mat-expansion-panel>
@@ -13,20 +13,20 @@
                          </span> 
                    </mat-expansion-panel-header>
                 
-                      <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style" [routerLink]="['/create-feature']">
+                      <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style" [routerLink]="['./create-feature']">
                                   Create Feature
                       </button><br>
 
-                      <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style"  [routerLink]="['/create-userstory']">
+                      <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style"  [routerLink]="['./create-userstory']">
                                   Create UserStory
                       </button><br>
 
-                      <button mat-raised-button aria-tooltip="Button " color="primary" style=color:rgb(245,245,245) class="mat-elevation-z5" class="width-style" [routerLink]="['/create-sprint']">
+                      <button mat-raised-button aria-tooltip="Button " color="primary" style=color:rgb(245,245,245) class="mat-elevation-z5" class="width-style" [routerLink]="['./create-sprint']">
                                   Create Sprint
                       </button><br>
 
                       <button mat-raised-button #tooltip="matTooltip" matTooltip="create release" matTooltipPosition="right"
-                      aria-tooltip="Button " color="primary" style=color:rgb(245,245,245) class="mat-elevation-z5" class="width-style" [routerLink]="['/create-release']">
+                      aria-tooltip="Button " color="primary" style=color:rgb(245,245,245) class="mat-elevation-z5" class="width-style" [routerLink]="['./create-release']">
                                   Create Release
                       </button><br>
                                         
@@ -40,43 +40,47 @@
 
       <mat-list>
          <mat-toolbar>  
-              <mat-toolbar-row  class="siderow-size" [routerLink]="['/backlogs']">
+              <mat-toolbar-row  class="siderow-size" [routerLink]="['./backlogs']">
                 <mat-icon>chrome_reader_mode</mat-icon>&nbsp; Backlogs Items
               </mat-toolbar-row>
               
-              <mat-toolbar-row  class="siderow-size" [routerLink]="['/active-sprints']">
+              <mat-toolbar-row  class="siderow-size" [routerLink]="['./active-sprints']">
                 <mat-icon>transfer_within_a_station</mat-icon> &nbsp;Active Sprint
               </mat-toolbar-row>
 
-              <mat-toolbar-row  class="siderow-size" [routerLink]="['/active-sprints']">
-                <mat-icon>transfer_within_a_station</mat-icon> &nbsp;Completed Sprint
+              <mat-toolbar-row  class="siderow-size" [routerLink]="['./complete-sprints']">
+                <mat-icon>beenhere</mat-icon> &nbsp;Completed Sprint
               </mat-toolbar-row>
           
-              <mat-toolbar-row class="siderow-size" [routerLink]="['/features']">
+              <mat-toolbar-row class="siderow-size" [routerLink]="['./features']">
                 <mat-icon>playlist_add_check</mat-icon> &nbsp; Feature
               </mat-toolbar-row>
           
-              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/releases']">
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['./releases']">
                 <mat-icon>gradient</mat-icon>&nbsp; Release
               </mat-toolbar-row>
 
-              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/sprint-burndown']">
-                <mat-icon>graphic_eq</mat-icon>&nbsp; Sprint Burndown
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['./sprint-burndown']">
+                <i class="material-icons">
+                  equalizer
+                  </i>&nbsp; Sprint Burndown
               </mat-toolbar-row>
 
-              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/worklogs']">
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['./worklogs']">
                 <mat-icon>notes</mat-icon>&nbsp; Work Logs
               </mat-toolbar-row>
 
-              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/log-history']">
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['./log-history']">
                 <mat-icon>chrome_reader_mode</mat-icon>&nbsp; Log History
               </mat-toolbar-row>
 
-              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/issues']">
-                <mat-icon>gavel</mat-icon>&nbsp; Issues
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['./issues']">
+                <i class="material-icons">
+                  bug_report
+                  </i>&nbsp; Issues
               </mat-toolbar-row>
          </mat-toolbar>
-                    <mat-list-item> Salt </mat-list-item>
+                   
                     </mat-list>
             
         </mat-sidenav>

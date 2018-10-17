@@ -60,21 +60,8 @@ export class ActiveSprintsComponent implements OnInit {
           prototype: 'D+5',
           du: 'D+25',
           costUpside: 14
-        },
-        {
-          id: '546664',
-          title: 'SBICRM_BFSI',
-          status: 'Backlog',
-          totalSubTask: 3,
-          completedSubTask: 0,
-          date: 1509036656468,
-          endDate: 1509967755896,
-          minimumCodeQuality: 6,
-          requiredCodeQuality: 10,
-          prototype: 'D+5',
-          du: 'D+25',
-          costUpside: 14
         }
+    
       ]
     },
     {
@@ -101,6 +88,20 @@ export class ActiveSprintsComponent implements OnInit {
           status: 'WIP',
           totalSubTask: 6,
           completedSubTask: 1,
+          date: 1509036656468,
+          endDate: 1509967755896,
+          minimumCodeQuality: 6,
+          requiredCodeQuality: 10,
+          prototype: 'D+5',
+          du: 'D+25',
+          costUpside: 14
+        },
+        {
+          id: '5347664',
+          title: 'BENELUX',
+          status: 'WIP',
+          totalSubTask: 3,
+          completedSubTask: 2,
           date: 1509036656468,
           endDate: 1509967755896,
           minimumCodeQuality: 6,

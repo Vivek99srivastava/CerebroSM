@@ -1,0 +1,42 @@
+ <mat-list>
+         <mat-toolbar>  
+              <mat-toolbar-row  class="siderow-size" [routerLink]="['/backlogs']">
+                <mat-icon>chrome_reader_mode</mat-icon>&nbsp; Backlogs Items
+              </mat-toolbar-row>
+              
+              <mat-toolbar-row  class="siderow-size" [routerLink]="['/active-sprints']">
+                <mat-icon>transfer_within_a_station</mat-icon> &nbsp;Active Sprint
+              </mat-toolbar-row>
+
+              <mat-toolbar-row  class="siderow-size" [routerLink]="['/complete-sprints']">
+                <mat-icon>transfer_within_a_station</mat-icon> &nbsp;Completed Sprint
+              </mat-toolbar-row>
+          
+              <mat-toolbar-row class="siderow-size" [routerLink]="['/features']">
+                <mat-icon>playlist_add_check</mat-icon> &nbsp; Feature
+              </mat-toolbar-row>
+          
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/releases']">
+                <mat-icon>gradient</mat-icon>&nbsp; Release
+              </mat-toolbar-row>
+
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/sprint-burndown']">
+                <mat-icon>graphic_eq</mat-icon>&nbsp; Sprint Burndown
+              </mat-toolbar-row>
+
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/worklogs']">
+                <mat-icon>notes</mat-icon>&nbsp; Work Logs
+              </mat-toolbar-row>
+
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/log-history']">
+                <mat-icon>chrome_reader_mode</mat-icon>&nbsp; Log History
+              </mat-toolbar-row>
+
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/issues']">
+                <mat-icon>gavel</mat-icon>&nbsp; Issues
+              </mat-toolbar-row>
+           </mat-toolbar>
+                    </mat-list>
+                    
+                </mat-expansion-panel>
+                <!-- cerebro menu ends -->

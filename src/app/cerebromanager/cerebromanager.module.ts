@@ -24,6 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 //cerebroSm-components
 import { CerebroSMAppComponent } from './cerebro-sm-app.component';
+import { CerebroMainAppComponent } from './cerebro-main-app.component';
 import { DialogOverviewExampleDialog } from './components/feature-toolbar/feature-toolbar.component';
 
 //service import
@@ -34,36 +35,50 @@ import { MaterialModule } from '../shared/material.module';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MainSidenavComponent } from './components/main-sidenav/main-sidenav.component';
+import { AllItemsComponent } from './components/all-items/all-items.component';
+import { CreateTicketComponent } from './components/main-sidenav-components/create-ticket/create-ticket.component';
+import { ViewManageIssuesComponent } from './components/main-sidenav-components/view-manage-issues/view-manage-issues.component';
+import { ViewManageReleaseComponent } from './components/main-sidenav-components/view-manage-release/view-manage-release.component';
+import { UserSettingsComponent } from './components/main-sidenav-components/user-settings/user-settings.component';
+import { VendorApiComponent } from './components/main-sidenav-components/vendor-api/vendor-api.component';
 
 // Routing sidenav to main-container
 
-
-// For FusionChart   
-// import * as FusionCharts from 'fusioncharts';  
-// import * as Charts from 'fusioncharts/fusioncharts.charts';  
-// import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';  
-// import { FusionChartsModule } from 'angular4-fusioncharts';  
-// FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme); 
-
-
-
 const routes: Routes = [
-  { path: '',component: CerebroSMAppComponent, children:[
-    {  path:'',component: MainContainerComponent },
+  { path: '',component: CerebroMainAppComponent, children:[
+    { path: '',component: MainContainerComponent },
+    { path:'allitems',component: AllItemsComponent },
+    { path:'create-ticket',component: CreateTicketComponent },
+    { path:'view-manage-issues',component: ViewManageIssuesComponent },
+    { path:'view-manage-release',component: ViewManageReleaseComponent },
+    { path:'user-settings',component: UserSettingsComponent },
+    { path:'vendor-vpn',component: VendorApiComponent },
+
+
+
+
+  ]},
+    { path:'cerebro',component: CerebroSMAppComponent, children:[
+    { path: '',component: MainContainerComponent },
     { path:'create-feature',component: CreateFeatureComponent },
     { path:'create-userstory',component: CreateUserStoryComponent },
     { path:'create-sprint',component: CreateSprintComponent },
     { path:'create-release',component: CreateReleaseComponent },
     { path:'backlogs',component: BacklogsComponent },
     { path:'active-sprints',component: ActiveSprintsComponent },
+    { path:'complete-sprints',component: CompletedSprintsComponent },
     { path:'features',component: FeaturesComponent },
     { path:'releases',component: ReleasesComponent },
     { path:'sprint-burndown',component: SprintBurndownComponent },
     { path:'worklogs',component: WorklogsComponent },
     { path:'log-history',component: LogHistoryComponent },
+    { path:'sidenav-cerebro',component: CerebroMainAppComponent },
     { path:'issues',component: IssuesComponent }
     
   ]},
+  { path: 'home', component: CerebroMainAppComponent },
+
     { path: '**' , redirectTo:'' }
     ];
 
@@ -80,12 +95,12 @@ const routes: Routes = [
   providers:[
     UserService
   ],
-  declarations: [CerebroSMAppComponent, ToolbarComponent, MainContainerComponent, SideNavComponent, 
+  declarations: [CerebroSMAppComponent,CerebroMainAppComponent, ToolbarComponent, MainContainerComponent, SideNavComponent, 
                    FeatureToolbarComponent,DialogOverviewExampleDialog, CreateFeatureComponent, 
                    CreateReleaseComponent, CreateUserStoryComponent, CreateSprintComponent,
                    BacklogsComponent, ActiveSprintsComponent, CompletedSprintsComponent, 
                    FeaturesComponent, ReleasesComponent, SprintBurndownComponent, WorklogsComponent, 
-                   LogHistoryComponent, IssuesComponent],
+                   LogHistoryComponent, IssuesComponent, MainSidenavComponent, AllItemsComponent, CreateTicketComponent, ViewManageIssuesComponent, ViewManageReleaseComponent, UserSettingsComponent, VendorApiComponent],
   entryComponents: [DialogOverviewExampleDialog]
 })
 export class CerebromanagerModule { }

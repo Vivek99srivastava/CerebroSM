@@ -1,3 +1,14 @@
-<p>
-  sprint-burndown works!
-</p>
+<br>
+<mat-card class="io" fxLayoutAlign="start stretch"><h3>Sprint Burndown</h3></mat-card>
+<br>
+
+<mat-card class="op">
+    <mat-form-field class="example-full-width1">
+        <mat-select placeholder="Sprint" [(ngModel)]="selectedValue" name="feature">
+         <mat-option *ngFor="let feature of features" [value]="feature.value">
+          {{feature.viewValue}}
+          </mat-option>
+        </mat-select>
+     </mat-form-field>
+    
+<table><tr><td style="width:1000px;height:10px" ><canvas id="lineChart"></canvas></td></tr></table></mat-card>

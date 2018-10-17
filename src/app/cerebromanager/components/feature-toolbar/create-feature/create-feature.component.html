@@ -8,18 +8,21 @@
           </mat-toolbar-row>
         </mat-toolbar><br><br>
         
-  <div class="setform" [hidden]="submitted">
-  <mat-dialog-content class="mat-typography">
-    <form class="example-form" (ngSubmit)="onSubmit()">
+  <div class="setform" [hidden]="clicked">
+    <mat-dialog-content class="mat-typography">
+
+     <!-- form starts -->
+
+    <form class="example-form" novalidate [formGroup]="featurescreate">
                 <!-- feature name -->
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Feature Name" id="fname"  [formControl]="fname" name="fname" reuired>
-                  <mat-error *ngIf="fname.invalid">{{getErrorfnameMessage()}}</mat-error>
+                  <input matInput placeholder="Feature Name"  formControlName="tfname" required>
+                  <mat-error *ngIf="featurescreate.controls.tfname.hasError('required')">Please enter feature name</mat-error>
                 </mat-form-field>
   
-                <!-- select -->
+                <!-- select application-->
                 <mat-form-field class="example-full-width1">
-                  <mat-select placeholder="Application" [(ngModel)]="selectedValue" name="feature" required>
+                  <mat-select placeholder="Application" [(ngModel)]="selectedValue" formControlName="tfeature" required>
                     <mat-option *ngFor="let feature of features" [value]="feature.value">
                     {{feature.viewValue}}
                     </mat-option>
@@ -27,10 +30,9 @@
                 </mat-form-field>
                 <br><br>
 
-
                 <!-- description -->
                 <mat-form-field class="example-full-width2">
-                  <textarea matInput placeholder="Description" id="description"  name="description"></textarea>
+                  <textarea matInput placeholder="Description" id="description"  formControlName="description"></textarea>
                 </mat-form-field>
               
                  <br><br>
@@ -59,20 +61,24 @@
                   <input type="file" id="fileUpload" name="fileUpload" multiple="multiple" accept="{{accept}}" style="display:none;" />
                   
                 </div> -->
- 
+                <mat-card-content>
+                  <button mat-raised-button color="primary" (click)="fileInput.click()">Upload</button>
+                  <input hidden type="file" #fileInput >
+                  <input matInput value="fileInput"  formControlName="filename">
+                </mat-card-content>
   
                 <br><br>
                 <!-- buttons -->
               <mat-dialog-actions class="buttons">
                   <button mat-flat-button color="warn" [routerLink]="['/']" >Cancel</button>&nbsp;
-                  <button type="submit" mat-raised-button color="primary"  >Submit</button>
+                  <button  mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
               </mat-dialog-actions>
         </form>
       </mat-dialog-content>
     </div>
 
     <!--display success message-->
-    <div [hidden]="!submitted">
+    <div [hidden]="!clicked">
         <h4>You submitted successfully!</h4>
         <mat-dialog-actions class="buttons">
             <button mat-flat-button color="warn" [routerLink]="['/']" >Create again</button>&nbsp;

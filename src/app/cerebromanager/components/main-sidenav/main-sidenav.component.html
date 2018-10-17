@@ -1,0 +1,91 @@
+<mat-sidenav-container class="SMmenu-container">
+    <mat-sidenav #sidenav class="SMmenu-sidenav mat-elevation-z20" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
+           
+<!-- <mat-sidenav-container class="SMmenu-container">
+    <mat-sidenav #sidenav class="SMmenu-sidenav mat-elevation-z20" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'"  style="background-color:wheat"> -->
+      <mat-toolbar color="primary">Main menu</mat-toolbar>
+
+            <mat-accordion>
+               <mat-expansion-panel>
+                   <mat-expansion-panel-header>
+                   
+                         <span class="header-name"> &nbsp;Agile Tool
+                         </span> 
+                   </mat-expansion-panel-header>
+                
+                      <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style" [routerLink]="['/warp']">
+                                  WARP
+                      </button><br>
+
+                      <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style"  [routerLink]="['/cerebro']">
+                                  CEREBRO
+                      </button><br>                                    
+                        
+                      </mat-expansion-panel>
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                          (closed)="panelOpenState = false">
+                      </mat-expansion-panel>
+            </mat-accordion>
+         
+            <mat-list>
+                <mat-toolbar>  
+                     <mat-toolbar-row  class="siderow-size" [routerLink]="['/allitems']">
+                      <i class="material-icons">
+                        done_all
+                        </i>&nbsp; All Items
+                     </mat-toolbar-row>
+                     
+                     <mat-toolbar-row  class="siderow-size" [routerLink]="['/create-ticket']">
+                      <i class="material-icons">
+                        note_add
+                        </i> &nbsp;Create ticket
+                     </mat-toolbar-row>
+         
+                     <mat-toolbar-row  class="siderow-size" [routerLink]="['/view-manage-issues']">
+                      <i class="material-icons">
+                        error
+                        </i> &nbsp;View / Manage issues
+                     </mat-toolbar-row>
+                                 
+                     <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/view-manage-release']">
+                      <i class="material-icons">
+                        next_week
+                        </i>&nbsp; View Release
+                     </mat-toolbar-row>
+         
+                     <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/user-settings']">
+                      <i class="material-icons">
+                        settings
+                        </i>&nbsp; User Settings
+                     </mat-toolbar-row>
+         
+                              
+                     <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/vendor-vpn']">
+                      <i class="material-icons">
+                        record_voice_over
+                        </i>&nbsp; Vendor VPN
+                     </mat-toolbar-row> 
+                </mat-toolbar>
+            </mat-list>
+
+
+
+
+
+
+
+
+            
+        </mat-sidenav>
+
+        <div class="SMmenu-container-content">
+                <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+                    <div class="wrapper"> 
+               <!-- <app-feature-toolbar></app-feature-toolbar> -->
+                <router-outlet></router-outlet> 
+           </div>
+        </div>
+    </mat-sidenav-container> 
+
+
+    

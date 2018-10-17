@@ -1,14 +1,16 @@
 <mat-progress-bar mode="buffer" color="default"></mat-progress-bar>
 
-<h2>Create Sprint</h2>
+<br>
+<mat-card class="io" fxLayoutAlign="start stretch"><h3>Create Sprint</h3></mat-card>
+<br>
 
 <div class="setform">
 
 <mat-dialog-content class="mat-typography">
-<form class="example-form">
+<form class="example-form" novalidate [formGroup]="createsprint">
     
     <mat-form-field class="example-full-width">
-        <mat-select placeholder="Application" [(ngModel)]="selectedValues" name="application1" required>
+        <mat-select placeholder="Application" [(ngModel)]="selectedValues" formControlName="application1" required>
            <mat-option *ngFor="let application1 of applications" [value]="application1.value">
              {{application1.viewValue}}
             </mat-option>
@@ -16,19 +18,24 @@
      </mat-form-field>
 
     <mat-form-field class="example-full-width1" >
-        <input matInput placeholder="Sprint Name" [formControl]="sname" required>
-        <mat-error *ngIf="sname.invalid">{{getErrorsnameMessage()}}</mat-error>
+        <input matInput placeholder="Sprint Name" formControlName="sname" required>
+        <mat-error *ngIf="createsprint.controls.sname.hasError('required')">Sprint name required</mat-error>
     </mat-form-field>
+
+
+    
+
+
 
    
     <mat-form-field class="example-full-width">
-        <input matInput [matDatepicker]="picker" placeholder="Start date">
+        <input matInput [matDatepicker]="picker" placeholder="Start date" formControlName="sdate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-    
+
       <mat-form-field class="example-full-width1">
-          <input matInput [min]="minDate" [max]="maxDate"  placeholder="Choose a date">
+          <input matInput [matDatepicker]="picker1" placeholder="End date" formControlName="edate">
           <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
@@ -79,7 +86,7 @@
 
   <mat-dialog-actions class="buttons">
       <button mat-flat-button color="warn" [routerLink]="['/']" >Cancel</button>&nbsp;
-      <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Create Sprint</button>
+      <button  mat-raised-button color="primary" (click)="onSubmit()">Create Sprint</button>
   </mat-dialog-actions>
 </form>
 

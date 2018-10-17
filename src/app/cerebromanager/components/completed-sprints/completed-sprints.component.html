@@ -1,3 +1,64 @@
-<p>
-  completed-sprints works!
-</p>
+<br>
+<mat-card class="io" fxLayoutAlign="start stretch"><h3>Completed Sprints</h3></mat-card>
+<br>
+<mat-form-field class="example-full-width1">
+    <mat-select placeholder="Application" [(ngModel)]="selectedValue" name="feature" required>
+      <mat-option *ngFor="let feature of features" [value]="feature.value">
+      {{feature.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+<br><br>
+<div class="mat-elevation-z8" class="table1">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="item">
+        <th mat-header-cell *matHeaderCellDef> Item. </th>
+        <td mat-cell *matCellDef="let element"> {{element.item}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="priority">
+        <th mat-header-cell *matHeaderCellDef> Priority </th>
+        <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="userstory">
+        <th mat-header-cell *matHeaderCellDef> UserStory </th>
+        <td mat-cell *matCellDef="let element"> {{element.userstory}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="feature">
+        <th mat-header-cell *matHeaderCellDef> Feature </th>
+        <td mat-cell *matCellDef="let element"> {{element.feature}} </td>
+      </ng-container>
+
+       <!-- Symbol Column -->
+       <ng-container matColumnDef="points">
+          <th mat-header-cell *matHeaderCellDef> Points </th>
+          <td mat-cell *matCellDef="let element"> {{element.points}} </td>
+        </ng-container>
+        
+         <!-- Symbol Column -->
+      <ng-container matColumnDef="assignedTo">
+          <th mat-header-cell *matHeaderCellDef> AssignedTo </th>
+          <td mat-cell *matCellDef="let element"> {{element.assignedTo}} </td>
+        </ng-container>
+
+       <!-- Symbol Column -->
+       <ng-container matColumnDef="progress">
+          <th mat-header-cell *matHeaderCellDef> Progress </th>
+          <td mat-cell *matCellDef="let row"><mat-progress-bar mode="determinate" value="{{row.progress}}" color="warn" class="progress1"></mat-progress-bar> {{row.progress}}%</td>
+        </ng-container>
+    
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  

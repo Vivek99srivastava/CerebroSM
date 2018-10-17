@@ -1,0 +1,259 @@
+ <mat-sidenav-container class="SMmenu-container">
+    <mat-sidenav #sidenav class="SMmenu-sidenav mat-elevation-z20" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
+           
+<!-- <mat-sidenav-container class="SMmenu-container">
+    <mat-sidenav #sidenav class="SMmenu-sidenav mat-elevation-z20" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'"  style="background-color:wheat"> -->
+     
+      <!-- dashboard title -->
+      <mat-toolbar color="primary">Main Dashboard</mat-toolbar>
+
+
+      <!-- sidenav menu -->
+      <mat-accordion>
+
+
+        <!-- cerebro menu starts -->
+        <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                    <mat-icon >create_new_folder</mat-icon>
+                    <span class="header-name">  Cerebro
+                    </span> 
+              </mat-expansion-panel-header>
+
+                <!-- cerebro -->
+               <mat-accordion>
+
+                <!-- create header -->
+               <mat-expansion-panel>
+
+                 <!-- create title -->
+                   <mat-expansion-panel-header>
+                         <mat-icon >create_new_folder</mat-icon>
+                         <span class="header-name">  Create
+                         </span> 
+                   </mat-expansion-panel-header>
+                  <!-- create title ends -->
+
+                   <!-- options starts -->
+                      <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style" [routerLink]="['/create-feature']">
+                                  Create Feature
+                      </button><br>
+
+                      <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style"  [routerLink]="['/create-userstory']">
+                                  Create UserStory
+                      </button><br>
+
+                      <button mat-raised-button aria-tooltip="Button " color="primary" style=color:rgb(245,245,245) class="mat-elevation-z5" class="width-style" [routerLink]="['/create-sprint']">
+                                  Create Sprint
+                      </button><br>
+
+                      <button mat-raised-button #tooltip="matTooltip" matTooltip="create release" matTooltipPosition="right"
+                      aria-tooltip="Button " color="primary" style=color:rgb(245,245,245) class="mat-elevation-z5" class="width-style" [routerLink]="['/create-release']">
+                                  Create Release
+                      </button><br>
+                    <!-- options ends -->
+                                        
+                        
+                    </mat-expansion-panel>
+                  <!-- create header ends -->
+
+
+                    <!-- expansion action -->
+                       <mat-expansion-panel (opened)="panelOpenState = true"
+                                          (closed)="panelOpenState = false">
+                       </mat-expansion-panel>
+                    <!-- expansion action ends-->
+
+             </mat-accordion> 
+             <!-- create menu ends-->        
+
+
+
+      <!-- cerebro other menus  -->
+      <mat-list>
+         <mat-toolbar>  
+              <mat-toolbar-row  class="siderow-size" [routerLink]="['/backlogs']">
+                <mat-icon>chrome_reader_mode</mat-icon>&nbsp; Backlogs Items
+              </mat-toolbar-row>
+              
+              <mat-toolbar-row  class="siderow-size" [routerLink]="['/active-sprints']">
+                <mat-icon>transfer_within_a_station</mat-icon> &nbsp;Active Sprint
+              </mat-toolbar-row>
+
+              <mat-toolbar-row  class="siderow-size" [routerLink]="['/complete-sprints']">
+                <mat-icon>transfer_within_a_station</mat-icon> &nbsp;Completed Sprint
+              </mat-toolbar-row>
+          
+              <mat-toolbar-row class="siderow-size" [routerLink]="['/features']">
+                <mat-icon>playlist_add_check</mat-icon> &nbsp; Feature
+              </mat-toolbar-row>
+          
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/releases']">
+                <mat-icon>gradient</mat-icon>&nbsp; Release
+              </mat-toolbar-row>
+
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/sprint-burndown']">
+                <mat-icon>graphic_eq</mat-icon>&nbsp; Sprint Burndown
+              </mat-toolbar-row>
+
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/worklogs']">
+                <mat-icon>notes</mat-icon>&nbsp; Work Logs
+              </mat-toolbar-row>
+
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/log-history']">
+                <mat-icon>chrome_reader_mode</mat-icon>&nbsp; Log History
+              </mat-toolbar-row>
+
+              <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/issues']">
+                <mat-icon>gavel</mat-icon>&nbsp; Issues
+              </mat-toolbar-row>
+           </mat-toolbar>
+                    </mat-list>
+                    
+                </mat-expansion-panel>
+                <!-- cerebro menu ends -->
+
+
+
+                <!-- warp menu starts -->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                          <mat-icon >create_new_folder</mat-icon>
+                          <span class="header-name">  WARP
+                          </span> 
+                    </mat-expansion-panel-header>
+      
+                      <!-- cerebro -->
+                  <mat-accordion>
+                     <mat-expansion-panel>
+                         <mat-expansion-panel-header>
+                               <mat-icon >create_new_folder</mat-icon>
+                               <span class="header-name">  Create
+                               </span> 
+                         </mat-expansion-panel-header>
+                      
+                            <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style" [routerLink]="['/create-feature']">
+                                        Create Feature
+                            </button><br>
+      
+                            <button mat-raised-button aria-tooltip="Button" color="primary" style=color:rgb(245,245,245) class="mat-elevation-z3" class="width-style"  [routerLink]="['/create-userstory']">
+                                        Create UserStory
+                            </button><br>
+      
+                            <button mat-raised-button aria-tooltip="Button " color="primary" style=color:rgb(245,245,245) class="mat-elevation-z5" class="width-style" [routerLink]="['/create-sprint']">
+                                        Create Sprint
+                            </button><br>
+      
+                            <button mat-raised-button #tooltip="matTooltip" matTooltip="create release" matTooltipPosition="right"
+                            aria-tooltip="Button " color="primary" style=color:rgb(245,245,245) class="mat-elevation-z5" class="width-style" [routerLink]="['/create-release']">
+                                        Create Release
+                            </button><br>
+                                              
+                              
+                      </mat-expansion-panel>
+                           <mat-expansion-panel (opened)="panelOpenState = true"
+                                                (closed)="panelOpenState = false">
+                      </mat-expansion-panel>
+                  </mat-accordion>          
+      
+            <mat-list>
+               <mat-toolbar>  
+                    <mat-toolbar-row  class="siderow-size" [routerLink]="['/backlogs']">
+                      <mat-icon>chrome_reader_mode</mat-icon>&nbsp; Backlogs Items
+                    </mat-toolbar-row>
+                    
+                    <mat-toolbar-row  class="siderow-size" [routerLink]="['/active-sprints']">
+                      <mat-icon>transfer_within_a_station</mat-icon> &nbsp;Active Sprint
+                    </mat-toolbar-row>
+      
+                    <mat-toolbar-row  class="siderow-size" [routerLink]="['/complete-sprints']">
+                      <mat-icon>transfer_within_a_station</mat-icon> &nbsp;Completed Sprint
+                    </mat-toolbar-row>
+                
+                    <mat-toolbar-row class="siderow-size" [routerLink]="['/features']">
+                      <mat-icon>playlist_add_check</mat-icon> &nbsp; Feature
+                    </mat-toolbar-row>
+                
+                    <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/releases']">
+                      <mat-icon>gradient</mat-icon>&nbsp; Release
+                    </mat-toolbar-row>
+      
+                    <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/sprint-burndown']">
+                      <mat-icon>graphic_eq</mat-icon>&nbsp; Sprint Burndown
+                    </mat-toolbar-row>
+      
+                    <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/worklogs']">
+                      <mat-icon>notes</mat-icon>&nbsp; Work Logs
+                    </mat-toolbar-row>
+      
+                    <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/log-history']">
+                      <mat-icon>chrome_reader_mode</mat-icon>&nbsp; Log History
+                    </mat-toolbar-row>
+      
+                    <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/issues']">
+                      <mat-icon>gavel</mat-icon>&nbsp; Issues
+                    </mat-toolbar-row>
+               </mat-toolbar>         
+            </mat-list>
+                          
+          </mat-expansion-panel>
+         <!-- warp menu ends -->
+
+
+
+
+
+            </mat-accordion>
+            agile tool menu ends
+
+
+
+            
+            <mat-list>
+                <mat-toolbar>  
+                     <mat-toolbar-row  class="siderow-size" [routerLink]="['/backlogs']">
+                       <mat-icon>chrome_reader_mode</mat-icon>&nbsp; All Items
+                     </mat-toolbar-row>
+                     
+                     <mat-toolbar-row  class="siderow-size" [routerLink]="['/active-sprints']">
+                       <mat-icon>transfer_within_a_station</mat-icon> &nbsp;Create ticket
+                     </mat-toolbar-row>
+         
+                     <mat-toolbar-row  class="siderow-size" [routerLink]="['/complete-sprints']">
+                       <mat-icon>transfer_within_a_station</mat-icon> &nbsp;View / Manage issues
+                     </mat-toolbar-row>
+                 
+                     <mat-toolbar-row class="siderow-size" [routerLink]="['/features']">
+                       <mat-icon>playlist_add_check</mat-icon> &nbsp; Add Release
+                     </mat-toolbar-row>
+                 
+                     <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/releases']">
+                       <mat-icon>gradient</mat-icon>&nbsp; View Release
+                     </mat-toolbar-row>
+         
+                     <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/sprint-burndown']">
+                       <mat-icon>graphic_eq</mat-icon>&nbsp; User Settings
+                     </mat-toolbar-row>
+         
+                     <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/worklogs']">
+                       <mat-icon>notes</mat-icon>&nbsp;  Priority
+                     </mat-toolbar-row>
+         
+                     <mat-toolbar-row (click)="toggleMenu()"class="siderow-size" [routerLink]="['/issues']">
+                       <mat-icon>gavel</mat-icon>&nbsp; Vendor VPN
+                     </mat-toolbar-row>
+                </mat-toolbar>
+            </mat-list>
+        </mat-sidenav>
+
+        <div class="SMmenu-container-content">
+                <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+                     
+               <!-- <app-feature-toolbar></app-feature-toolbar> -->
+                <router-outlet></router-outlet> 
+           
+        </div>
+    </mat-sidenav-container> 
+
+
+    

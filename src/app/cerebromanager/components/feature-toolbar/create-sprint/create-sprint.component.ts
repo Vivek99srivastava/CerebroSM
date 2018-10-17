@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, Validators , FormGroup} from '@angular/forms';
 import {MatTableDataSource} from '@angular/material';
 
 export interface Application1 {
@@ -42,6 +42,16 @@ export class CreateSprintComponent implements OnInit {
   minDate = new Date(2000, 0, 1);
   maxDate = new Date(2020, 0, 1);
 
+  
+  createsprint = new FormGroup({
+    application1 : new FormControl(''),
+    sname : new FormControl(''),
+    sdate : new FormControl(''),
+    edate : new FormControl(''),
+   
+    
+  });
+
   getErrorsnameMessage(){
     return this.sname.hasError('required') ? 'You must enter sprint name' :'';
   }
@@ -65,5 +75,12 @@ export class CreateSprintComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onSubmit() {
+    // this.submitted = true;
+    // this.save();
+    console.log(this.createsprint.value);
+  }
+
 
 }

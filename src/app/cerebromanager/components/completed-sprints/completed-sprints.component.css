@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+    
+  }
+  .io{
+    background-color: rgb(12, 12, 12);
+    color:white;
+    width:21%;
+    height:40px;
+    padding-top: 9px;  
+  }
+  .example-full-width1 {
+    width: 20%;
+    padding-left: 3%
+  }
+  .table1{
+    padding-left: 3%
+
+  }
