@@ -1,47 +1,45 @@
- <mat-progress-bar mode="buffer" color="default"></mat-progress-bar>
 
-        <!-- <mat-toolbar color="primary" class="titlebar">
-          <mat-toolbar-row  >
-                    <span class="example-spacer"></span>
-                    <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
-                    <span>Create UserStory</span>
-          </mat-toolbar-row>
-        </mat-toolbar> -->
+ <mat-card  style="margin:20px;" class="mat-elevation-z5" >
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+              <span class="example-spacer"></span>
+              <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+              <span>Create User Story</span>
+    </mat-toolbar-row>
+  </mat-toolbar><br><br>
 
-        <br>
-        <mat-card class="io" fxLayoutAlign="start stretch"><h3>Create User Story</h3></mat-card>
-        <br>
- 
+  
   <div class="setform">
 
     <mat-dialog-content class="mat-typography">
-      <form class="example-form" novalidate [formGroup]="createuserstory">
+      <form class="example-form">
             <mat-form-field class="example-full-width" >
-                <input matInput placeholder="Feature Name" formControlName="fnames" required>
-                <mat-error *ngIf="createuserstory.controls.fnames.hasError('required')">Feature name required</mat-error>
+                <input matInput placeholder="Feature Name" [formControl]="fname" required>
+                <mat-error *ngIf="fname.invalid">{{getErrorfnameMessage()}}</mat-error>
             </mat-form-field>
           
              <!-- space--> 
   
             <mat-form-field class="example-full-width1">
-               <mat-select placeholder="Priority" [(ngModel)]="selectedValue" formControlName="priority" required>
+               <mat-select placeholder="Priority" [(ngModel)]="selectedValue" name="feature" required>
                   <mat-option *ngFor="let feature of features" [value]="feature.value">
                     {{feature.viewValue}}
                    </mat-option>
                   </mat-select>
             </mat-form-field>
-  
+  <br><br>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Requestor Name" formControlName="requestor">
+                <input matInput placeholder="Requestor Name">
             </mat-form-field>
                          <!-- space-->
            <mat-form-field class="example-full-width1">
-                <input matInput placeholder="Enter your email" formControlName="email" required>
-                  <mat-error *ngIf="createuserstory.controls.email.hasError('required')">Email required</mat-error>
+                <input matInput placeholder="Enter your email" [formControl]="email" required>
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
            </mat-form-field>
+           <br><br>
   
            <mat-form-field class="example-full-width">
-               <input matInput placeholder="Alternate email" formControlName="aemail" >
+               <input matInput placeholder="Alternate email" [formControl]="email1" >
                 <mat-error *ngIf="email1.invalid">{{getErroraltMessage()}}</mat-error>
            </mat-form-field>
     
@@ -49,22 +47,22 @@
                               <!-- space-->
 
           <mat-form-field class="example-full-width1">
-              <input matInput placeholder="Phone Number" formControlName="phone">
+              <input matInput placeholder="Phone Number">
                  <mat-icon matSuffix>phone</mat-icon>
         
           </mat-form-field><br>
 
-
+          <br><br>
 
 
          <mat-form-field class="example-full-width2">
-           <textarea matInput placeholder="Description" formControlName="description" required></textarea>
-           <mat-error *ngIf="createuserstory.controls.description.hasError('required')">Description required</mat-error>
+           <textarea matInput placeholder="Description" [formControl]="description" required style="height: 150px"></textarea>
+           <mat-error *ngIf="description.invalid">{{getErrordescribe()}}</mat-error>
          </mat-form-field>
          
   
          
-         <br>
+         <br><br>
         <div class="container">Attachment
               <button mat-button color="warn" (click)="onClick()">
                 <mat-icon>file_upload</mat-icon>
@@ -91,7 +89,7 @@
     </div>
           <mat-dialog-actions class="buttons">
               <button mat-flat-button color="warn" [routerLink]="['/']" >Cancel</button>&nbsp;
-              <button  mat-raised-button color="primary" (click)="onSubmit()">Create</button>
+              <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
           </mat-dialog-actions>
   </form>
   
@@ -103,4 +101,4 @@
     </div>
 
   
- 
+ </mat-card>

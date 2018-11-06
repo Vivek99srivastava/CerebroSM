@@ -1,11 +1,33 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
-export interface Features {
-  value: string;
-  viewValue: string;
+export interface UserData {
+  id: string;
+  name: string;
+  backlogs: string,
+  progress: string;
+  color: string;
+  features: string;
+  sprint: string;
+  priority: string;
+  // color1: string;
+  // id2: string;
+  // name2: string;
 
 }
+
+
+const ID: string[] = ['US-1', 'US-2', 'US-3', 'US-4'];
+    const COLORS: string[] = ['red', 'green', 'orange', 'gray'];
+
+    const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
+      'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
+       'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
+    const PRIORITY: string[] = ['High','Low','Average'];
+    const BACKLOGS: string[] = ['sddash Test','Sidenav Test','Api Check','Db check'];
+    const FEATURES: string[] = ['Worklog','Deployment','Api Calls','Db integeration','Ui fixes'];
+    const SPRINTS: string[] = ['Sprint1','Sprint2','Sprint3','Sprint4','Sprint5'];
+
 
 @Component({
   selector: 'app-completed-sprints',
@@ -13,41 +35,71 @@ export interface Features {
   styleUrls: ['./completed-sprints.component.css']
 })
 export class CompletedSprintsComponent implements OnInit {
-  selectedValue: string;
-  features: Features[] = [
-    {value: 'steak-0',viewValue: 'Cerebros'},
-    {value: 'steak-1',viewValue: 'Warp'},
-    {value: 'tacos-2',viewValue: 'Steak'}
-  ];
 
-  displayedColumns: string[] = ['item', 'priority', 'userstory','feature','points','assignedTo', 'points', 'progress'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['id', 'priority','backlogs','feature','points','assignedto','sprint','status'];
+  dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor() { 
+     // Create 100 users
+     const users = Array.from({length: 100}, (_, k) => createNewUser());
+     
+
+     // Assign the data to the data source for the table to render
+     this.dataSource = new MatTableDataSource(users);
+       
+
+  }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  applyFilter1(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }
 
-export interface PeriodicElement {
-  assignedTo: string;
-  item: number;
-  priority: string,
-  userstory: string,
-  feature: string,
-  points: number;
-  progress: string;
+
+/** Builds and returns a new User. */
+function createNewUser(): UserData {
+  const id =
+  ID[Math.round(Math.random() * (ID.length - 1))] + ' ';
+
+  const name =
+      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+  const backlogs =
+      BACKLOGS[Math.round(Math.random() * (BACKLOGS.length - 1))] + ' ';
+  const features =
+      FEATURES[Math.round(Math.random() * (FEATURES.length - 1))] + ' ';
+  const sprints =
+      SPRINTS[Math.round(Math.random() * (SPRINTS.length - 1))] + ' ';
+  const priority =
+      PRIORITY[Math.round(Math.random() * (PRIORITY.length - 1))] + ' ';
+
+  return {
+    id: id,
+    name: name,
+    backlogs: backlogs,
+    features: features,
+    sprint: sprints,
+    priority:priority,
+    progress: Math.round(Math.random() * 100).toString(),
+    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+  };
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {item: 1, priority: 'low', userstory: 'asd', feature:'Finance 1', points: 1, assignedTo: 'Vivek',progress: '60'},
-  {item: 2, priority: 'high', userstory: 'fg', feature:'Finance 4',points: 4,assignedTo: 'Amol',  progress: '80'},
-  {item: 3, priority: 'average', userstory: 'gfs', feature:'Testing5 1', points: 9,assignedTo: 'Sana', progress: '70'},
-  {item: 4, priority: 'low', userstory: 'dfs', feature:'Sales 1', points: 6,assignedTo: 'Mandy', progress: '78'},
-  {item: 5, priority: 'low', userstory: 'asd', feature:'Finance 1', points: 1, assignedTo: 'Vivek',progress: '60'},
-  {item: 6, priority: 'high', userstory: 'fg', feature:'Finance 4',points: 4,assignedTo: 'Amol',  progress: '80'},
-  {item: 7, priority: 'average', userstory: 'gfs', feature:'Testing5 1', points: 9,assignedTo: 'Sana', progress: '70'},
-  {item: 8, priority: 'low', userstory: 'dfs', feature:'Sales 1', points: 6,assignedTo: 'Mandy', progress: '78'},
-
-];

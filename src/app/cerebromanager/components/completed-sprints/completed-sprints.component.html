@@ -1,64 +1,80 @@
-<br>
-<mat-card class="io" fxLayoutAlign="start stretch"><h3>Completed Sprints</h3></mat-card>
-<br>
-<mat-form-field class="example-full-width1">
-    <mat-select placeholder="Application" [(ngModel)]="selectedValue" name="feature" required>
-      <mat-option *ngFor="let feature of features" [value]="feature.value">
-      {{feature.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-<br><br>
-<div class="mat-elevation-z8" class="table1">
-    <table mat-table [dataSource]="dataSource">
-  
-      <!-- Position Column -->
-      <ng-container matColumnDef="item">
-        <th mat-header-cell *matHeaderCellDef> Item. </th>
-        <td mat-cell *matCellDef="let element"> {{element.item}} </td>
-      </ng-container>
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="priority">
-        <th mat-header-cell *matHeaderCellDef> Priority </th>
-        <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
-      </ng-container>
-  
-      <!-- Weight Column -->
-      <ng-container matColumnDef="userstory">
-        <th mat-header-cell *matHeaderCellDef> UserStory </th>
-        <td mat-cell *matCellDef="let element"> {{element.userstory}} </td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="feature">
-        <th mat-header-cell *matHeaderCellDef> Feature </th>
-        <td mat-cell *matCellDef="let element"> {{element.feature}} </td>
-      </ng-container>
 
-       <!-- Symbol Column -->
-       <ng-container matColumnDef="points">
-          <th mat-header-cell *matHeaderCellDef> Points </th>
-          <td mat-cell *matCellDef="let element"> {{element.points}} </td>
-        </ng-container>
-        
-         <!-- Symbol Column -->
-      <ng-container matColumnDef="assignedTo">
-          <th mat-header-cell *matHeaderCellDef> AssignedTo </th>
-          <td mat-cell *matCellDef="let element"> {{element.assignedTo}} </td>
-        </ng-container>
+      <mat-card  style="margin:20px;" class="mat-elevation-z5" >
+          <mat-toolbar color="primary">
+              <mat-toolbar-row>
+                        <span class="example-spacer"></span>
+                        <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+                        <span>Completed Sprints</span>
+              </mat-toolbar-row>
+            </mat-toolbar>
+<br>      
 
-       <!-- Symbol Column -->
-       <ng-container matColumnDef="progress">
-          <th mat-header-cell *matHeaderCellDef> Progress </th>
-          <td mat-cell *matCellDef="let row"><mat-progress-bar mode="determinate" value="{{row.progress}}" color="warn" class="progress1"></mat-progress-bar> {{row.progress}}%</td>
-        </ng-container>
+
+    <!-- backlog filter -->
+    <mat-form-field class="backlog-filter">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Quick Finder">
+    </mat-form-field><mat-icon>search</mat-icon>
+
+    <div class="mat-elevation-z8" class="tablelayout">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+              <!-- Item Column -->
+              <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Item #  </th>
+                  <td mat-cell *matCellDef="let row"> <a [routerLink]="['../user-story-details']">{{row.id}}</a> </td>
+                  </ng-container>
+
+              <!-- Priority -->
+                <ng-container matColumnDef="priority">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Priority </th>
+                <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.priority}} </td>
+                </ng-container>
+
+              <!-- Backlogs item -->
+                <ng-container matColumnDef="backlogs">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> User Story </th>
+                <td mat-cell *matCellDef="let row"> {{row.backlogs}} </td>
+                </ng-container>
+
+              <!-- Feature -->
+                <ng-container matColumnDef="feature">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Feature </th>
+                <td mat-cell *matCellDef="let row"> {{row.features}} </td>
+                </ng-container>
+
+              <!-- Points Column -->
+                <ng-container matColumnDef="points">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Points </th>
+                <td mat-cell *matCellDef="let row"> {{row.progress}} </td>
+                </ng-container>
+
+                <!-- Assigned to Column -->
+                 <ng-container matColumnDef="assignedto">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Assigned To </th>
+                  <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                  </ng-container>
+
+                 <!-- Sprint to Column -->
+                 <ng-container matColumnDef="sprint">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Sprint</th>
+                  <td mat-cell *matCellDef="let row"> {{row.sprint}} </td>
+                  </ng-container>
+
+                  <!-- Status to Column -->
+                   <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Status</th>
+                    <td mat-cell *matCellDef="let row"><mat-progress-bar mode="determinate" value="{{row.progress}}" color="warn" class="progress1"></mat-progress-bar> {{row.progress}}%</td>
+                    </ng-container>
+
+                   
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+              </tr>
+            </table>
+
+  <mat-paginator [pageSizeOptions]="[15, 25, 100]"></mat-paginator>
+    </div>
     
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  </div>
-  
+

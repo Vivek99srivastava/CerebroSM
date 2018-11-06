@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 export interface UserData {
-  id: string;
+  userstoryid: string;
   issueid: string
   sprint: string;
   title: string,
@@ -21,6 +21,7 @@ export interface UserData {
 }
 
 
+const USERSTORYID: string[] = ['US-1','US-2','US-3','US-4'];
 const ISSUEID: string[] = ['Issue-1','Issue-2','Issue-3','Issue-4'];
 const SPRINTS: string[] = ['Sprint1','Sprint2','Sprint3','Sprint4','Sprint5'];
 const TITLE: string[] = ['test','bug23','testfail','deploy'];
@@ -38,7 +39,6 @@ const LASTUPDATED: string[] = ['12/4/2018','3/6/2018','3/7/2018','5/7/2018'];
     
     
 
-
 @Component({
   selector: 'app-issues',
   templateUrl: './issues.component.html',
@@ -47,7 +47,7 @@ const LASTUPDATED: string[] = ['12/4/2018','3/6/2018','3/7/2018','5/7/2018'];
 export class IssuesComponent implements OnInit {
 
   
-  displayedColumns: string[] = ['id','issueid', 'sprint', 'title', 'detectedBy', 'type','priority','assignedTo', 'status','rootCause','lastUpdated'];
+  displayedColumns: string[] = ['userstoryid','issueid', 'sprint', 'title', 'detectedBy', 'type','priority','assignedTo', 'status','rootCause','lastUpdated'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -88,6 +88,8 @@ export class IssuesComponent implements OnInit {
 
 /** Builds and returns a new User. */
 function createNewUser(id: number): UserData {
+  const userstoryid =
+      USERSTORYID[Math.round(Math.random() * (USERSTORYID.length - 1))] + ' ';
   const issue =
       ISSUEID[Math.round(Math.random() * (ISSUEID.length - 1))] + ' ';
   const sprints =
@@ -113,7 +115,7 @@ function createNewUser(id: number): UserData {
 
 
   return {
-    id: id.toString(),
+    userstoryid: userstoryid,
     issueid: issue,
     sprint: sprints,
     title: title,

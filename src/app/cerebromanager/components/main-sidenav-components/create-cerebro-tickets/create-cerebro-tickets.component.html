@@ -1,0 +1,115 @@
+<mat-card  style="margin:20px;" class="mat-elevation-z5" >
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+                <span class="example-spacer"></span>
+                <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+                <span>Create Cerebro Ticket</span>
+      </mat-toolbar-row>
+    </mat-toolbar><br><br>
+  
+<div class="setform" [hidden]="submitted">
+<mat-dialog-content class="mat-typography">
+<form class="example-form" (ngSubmit)="onSubmit()">
+          <!-- feature name -->
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Application / Department" [(ngModel)]="selectedValue" name="appName" (selectionChange)="someMethod($event.value)"  required>
+              <mat-option *ngFor="let app of applications" [value]="app.value">
+              {{app.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- select -->
+          <mat-form-field class="example-full-width1">
+            <mat-select placeholder="Business unit" [(ngModel)]="selectedValue" name="businessUnit" required>
+              <mat-option *ngFor="let cerebroTicket of cerebroTickets" [value]="cerebroTicket.value">
+              {{cerebroTicket.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br><br>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Requestor" id="requestor"  name="requestor"  [formControl]="requestor" value="AK807X" required >
+            <mat-error *ngIf="requestor.invalid">{{getErrorRequestorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width1">
+            <input matInput placeholder="Email" id="email"  name="email" value="ak807x@att.com" [formControl]="email" required >
+            <mat-error *ngIf="email.invalid">{{getErrorEmailMessage()}}</mat-error>
+          </mat-form-field>
+
+          <br><br>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Alternate contact email" id="alternatecontact"  name="alternatecontact" value="" >
+            
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width1">
+            <input matInput placeholder="Alternate contact phone" id="alternatephone"  name="alternatephone" value="" >
+            
+          </mat-form-field>
+          <br><br>
+          <mat-form-field class="example-full-width2">
+            <input matInput placeholder="Title" id="title"  name="title" [formControl]="title" value="" required>
+            <mat-error *ngIf="title.invalid">{{getErrorTitleMessage()}}</mat-error>
+            
+          </mat-form-field>
+          <br><br>
+          <!-- description -->
+          <mat-form-field class="example-full-width2">
+            <textarea matInput placeholder="Description" id="description"  name="description" style="height:150px;" [formControl]="description" required></textarea>
+            <mat-error *ngIf="description.invalid">{{getErrorDescriptionMessage()}}</mat-error>
+          </mat-form-field>
+        
+           <br><br>
+
+          <div class="container">Attachment
+                <button mat-button color="warn" (click)="onClick()">
+                    <mat-icon>file_upload</mat-icon>
+                    {{text}}
+                </button>
+            <br/>
+            <ul>
+              <li *ngFor="let file of files" [@fadeInOut]="file.state">
+                <mat-progress-bar [value]="file.progress"></mat-progress-bar>
+                 <span id="file-label">
+                  {{file.data.name}}
+                    <a title="Retry" (click)="retryFile(file)" *ngIf="file.canRetry">
+                      <mat-icon>refresh</mat-icon>
+                    </a>
+                    <a title="Cancel" (click)="cancelFile(file)" *ngIf="file.canCancel">
+                      <mat-icon>cancel</mat-icon>
+                    </a>
+                  </span>
+                </li>
+             </ul>
+        
+            <input type="file" id="fileUpload" name="fileUpload" multiple="multiple" accept="{{accept}}" style="display:none;" />
+            
+          </div>
+
+
+          <br><br>
+          <!-- buttons -->
+          
+        <mat-dialog-actions class="primary" >
+            <button mat-flat-button color="warn" [routerLink]="['/']" >Cancel</button>&nbsp;
+            <button type="submit" mat-raised-button color="primary"  >Submit</button>
+        </mat-dialog-actions>
+  </form>
+</mat-dialog-content>
+</div>
+
+<!--display success message-->
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <mat-dialog-actions class="buttons">
+      <button mat-flat-button color="warn" [routerLink]="['/']" >Create again</button>&nbsp;
+      
+  </mat-dialog-actions>
+</div>
+
+
+
+

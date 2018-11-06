@@ -1,66 +1,69 @@
-// import { Component, OnInit ,ViewEncapsulation } from '@angular/core';
-
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-// import { Chart } from 'chart.js';
-declare const Chart;
+import { Component, OnInit } from '@angular/core';
+//import { Chart } from '/Projects/Demo/CerebroNew/node_modules/chartjs/chart.js';
 
 export interface Feature {
   value: string;
   viewValue: string;
 
 }
-
 @Component({
   selector: 'app-sprint-burndown',
   templateUrl: './sprint-burndown.component.html',
-  styleUrls: ['./sprint-burndown.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./sprint-burndown.component.css']
+  
 })
 export class SprintBurndownComponent implements OnInit {
 
-  constructor() { }
+selectedValue: string;
 
-  ngOnInit() {
-      // setTimeout(() => {
-      //     this.createChart();
-      // }, 200)
-  }
-  createChart() {
-      new Chart('chart-2', {
-          type:'line',
-          data: {
-              labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
-              datasets: [
-                  {
-                      backgroundColor: '#7E57C2',
-                      borderColor: '#7E57C2',
-                      data: [-76.97, 46.91, 32.31, -7.19, -9.85, -76.91, -50.36, 42.66],
-                      label: 'Dataset',
-                      fill: 'false'
-                  },
+features: Feature[] = [
+  {value: 'steak-0', viewValue: 'Sprint1'},
+  {value: 'steak-1', viewValue: 'Sprint2'},
+  {value: 'tacos-2', viewValue: 'Sprint3'},
+  {value: 'steak-3', viewValue: 'Sprint4'},
+];
+
+LineChart = [];
+constructor() { }
+
+ngOnInit() {
                   
-              ]
-          },
-          options: {
-              legend: {
-                  display: false
-              },
-              elements: {
-                  line: {
-                      tension: 0.000001
-                  }
-              },
-              maintainAspectRatio: false,
-              plugins: {
-                  filler: {
-                      propagate: false
-                  }
-              },
-              title: {
-                  display: true,
-                  text: 'SALES GRAPH'
-              }
-          }
-      })
-  }
+
+  /*this.LineChart = new Chart('lineChart', {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      datasets: [{
+      label: '',      
+      data: [9, 5, 45, 3, 6, 5, 20, 11, 24, 54, 78, 100],
+      lineTension: 0.2,
+      borderColor: 'red',
+      borderWidth: 1,
+    
+    }]
+  },
+    options: {
+     title: {
+      text: 'Sprint Burndown',
+       display: true,
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+                    }
+                 }]
+     }
+    },
+        maintainAspectRatio: false,
+             plugins: {
+               filler: {
+                     propagate: false
+                }
+             },
+
+        })*/
+}
+
+
 }

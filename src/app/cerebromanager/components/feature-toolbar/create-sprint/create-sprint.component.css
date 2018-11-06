@@ -14,14 +14,16 @@ $iconWidth: 56px;
 .matcard{
   padding: 20px;
 }
-.io{
-  background-color: rgb(12, 12, 12);
-  color:white;
-  width:21%;
-  height:40px;
-  padding-top: 9px;  
+h2 {
+  background-color: rgb(30, 30, 34);
+  height: 40px;
+  color: rgb(255, 255, 255);
+  padding-top: 4px; 
+  padding-left: 15px;
+  width: 21%;
+  
+  
 }
-
 .setform{
   
   padding-left: 50px;
@@ -89,5 +91,6 @@ table {
   padding-left: 3%;
   margin-left: 3%;
 }
+
 
 

@@ -50,6 +50,7 @@ p {
 .some-icon{
   float: left;
   margin-left: 5px;
+  align-content: right;
 }
 .some-icon1{
   float: left;
@@ -57,4 +58,14 @@ p {
 }
 .search{
   padding: 115%;
+}
+.fill-space {
+  flex: 1 1 auto;
+}
+.example-icon {
+  padding: 0 100px;
+}
+
+.example-spacer {
+  flex: 1 1 fixed;
 }

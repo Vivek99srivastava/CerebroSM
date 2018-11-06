@@ -17,6 +17,7 @@ export interface UserData {
 }
 
 
+const ID: string[] = ['US-1', 'US-2', 'US-3', 'US-4'];
     const COLORS: string[] = ['red', 'green', 'orange', 'gray'];
 
     const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
@@ -35,7 +36,7 @@ export interface UserData {
 })
 export class BacklogsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'priority','backlogs','feature','points','assignedto','sprint','status','attachment'];
+  displayedColumns: string[] = ['id', 'priority','backlogs','feature','points','assignedto','sprint','status'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -43,7 +44,7 @@ export class BacklogsComponent implements OnInit {
 
   constructor() { 
      // Create 100 users
-     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+     const users = Array.from({length: 100}, (_, k) => createNewUser());
      
 
      // Assign the data to the data source for the table to render
@@ -75,7 +76,10 @@ export class BacklogsComponent implements OnInit {
 
 
 /** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
+function createNewUser(): UserData {
+  const id =
+  ID[Math.round(Math.random() * (ID.length - 1))] + ' ';
+
   const name =
       NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
@@ -89,7 +93,7 @@ function createNewUser(id: number): UserData {
       PRIORITY[Math.round(Math.random() * (PRIORITY.length - 1))] + ' ';
 
   return {
-    id: id.toString(),
+    id: id,
     name: name,
     backlogs: backlogs,
     features: features,

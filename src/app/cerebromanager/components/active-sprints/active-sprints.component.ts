@@ -19,9 +19,9 @@ export class ActiveSprintsComponent implements OnInit {
       count: 3,
       data: [
         {
-          id: '123123',
+          id: 'US-1',
           title: 'SEBI_BFSI',
-          status: 'Backlog',
+          status: 'To Do',
           totalSubTask: 2,
           completedSubTask: 0,
           startDate: 1509036656468,
@@ -34,7 +34,7 @@ export class ActiveSprintsComponent implements OnInit {
           costUpside: 10
         },
         {
-          id: '543664',
+          id: 'US-2',
           title: 'VIL_SUMERU',
           status: 'Backlog',
           totalSubTask: 6,
@@ -48,7 +48,7 @@ export class ActiveSprintsComponent implements OnInit {
           costUpside: 9
         },
         {
-          id: '546664',
+          id: 'US-3',
           title: 'SBICRM_BFSI',
           status: 'Backlog',
           totalSubTask: 3,
@@ -69,7 +69,7 @@ export class ActiveSprintsComponent implements OnInit {
       count: 3,
       data: [
         {
-          id: '013466',
+          id: 'US-4',
           title: 'NEW_AGE_DELIVERY',
           status: 'WIP',
           totalSubTask: 5,
@@ -83,7 +83,7 @@ export class ActiveSprintsComponent implements OnInit {
           costUpside: 14
         },
         {
-          id: '5247464',
+          id: 'US-5',
           title: 'BLUE_MARBLE',
           status: 'WIP',
           totalSubTask: 6,
@@ -97,7 +97,7 @@ export class ActiveSprintsComponent implements OnInit {
           costUpside: 14
         },
         {
-          id: '5347664',
+          id: 'US-6',
           title: 'BENELUX',
           status: 'WIP',
           totalSubTask: 3,
@@ -111,7 +111,7 @@ export class ActiveSprintsComponent implements OnInit {
           costUpside: 14
         },
         {
-          id: '5347664',
+          id: 'US-7',
           title: 'BENELUX',
           status: 'WIP',
           totalSubTask: 3,
@@ -131,7 +131,7 @@ export class ActiveSprintsComponent implements OnInit {
       count: 2,
       data: [
         {
-          id: '212464',
+          id: 'US-8',
           title: 'AIRCOM',
           status: 'Done',
           totalSubTask: 5,
@@ -145,7 +145,7 @@ export class ActiveSprintsComponent implements OnInit {
           costUpside: 14
         },
         {
-          id: '884561',
+          id: 'US-9',
           title: 'BOMBARDIER',
           status: 'Done',
           totalSubTask: 6,

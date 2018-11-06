@@ -10,7 +10,19 @@ export interface USERSTORY {
   viewValue1: string;
 }
 
+export interface PeriodicElement {
+  activity: string;
+  progress: number;
+  comments: string;
+  action: string;
 
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {activity: 'UI-DEVELOPMENT', progress: 87,  comments: '',action: 'update'},
+  {activity: 'TESTING', progress: 56,  comments: '',action: 'update'},
+
+];
 
 @Component({
   selector: 'app-worklogs',
@@ -32,7 +44,8 @@ export class WorklogsComponent implements OnInit {
     {value1: 'us-3', viewValue1: 'US-23 SANA'}
   ];
 
-
+  displayedColumns: string[] = ['activity', 'progress',  'comments','action'];
+  dataSource = ELEMENT_DATA;
 
   ngOnInit() {
     

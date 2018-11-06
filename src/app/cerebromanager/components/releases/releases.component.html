@@ -1,11 +1,15 @@
-<div class="backlogsdialog">
-    <br>
-    <mat-card class="io" fxLayoutAlign="start stretch"><h3>Releases</h3></mat-card>
-    <br>
+
+      <mat-card  style="margin:20px;" class="mat-elevation-z5" >
+          <mat-toolbar color="primary">
+              <mat-toolbar-row>
+                        <span class="example-spacer"></span>
+                        <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+                        <span>View / Manage Releases </span>
+              </mat-toolbar-row>
+            </mat-toolbar>
+<br>      
         <!-- backlog filter -->
-        <mat-form-field class="backlog-filter">
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Quick Finder">
-        </mat-form-field><mat-icon>search</mat-icon>
+        
         <mat-form-field class="backlog-filter">
             <input matInput (keyup)="applyFilter1($event.target.value)" placeholder="Quick Finder">
           </mat-form-field><mat-icon>search</mat-icon>
@@ -69,6 +73,6 @@
     
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
         </div>
-        </div>
+      
     
     

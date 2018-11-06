@@ -1,9 +1,14 @@
-.io{
-    background-color: rgb(12, 12, 12);
-    color:white;
-    width:21%;
-    height:40px;
-    padding-top: 9px;  
+
+h2 {
+    flex:auto;
+    background-color: rgb(30, 30, 34);
+    height: 40px;
+    color: rgb(255, 255, 255);
+    padding-top: 0.5%;  
+    padding-left: 2%;
+    width: 19%;
+    
+
   }
 
   table {
@@ -30,7 +35,7 @@
   }
 
   .backlog-filter{
-      width:19%;
+      width:12%;
       padding-left: 2%;
   }
   .tablelayout{

@@ -23,7 +23,7 @@ const REQUESTORS: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'J
 const DESCRIPTION: string[] = ['sddash Test','Sidenav Test','Api Check','Db check'];
 const LASTUPDATED: string[] = ['12/4/2018','3/6/2018','3/7/2018','5/7/2018'];
 const MODIFIED: string[] = ['Rsla', 'Tiver', 'Iabella', 'Kasper'];
-
+const FID: string[] = ['Feature-1', 'Feature-2', 'Feature-3', 'Feature-4'];
 
 
 @Component({
@@ -33,7 +33,7 @@ const MODIFIED: string[] = ['Rsla', 'Tiver', 'Iabella', 'Kasper'];
 })
 export class FeaturesComponent implements OnInit {
 
-  displayedColumns: string[] = ['fid', 'fname','requestor','description','modified','last_update','attachment','remove'];
+  displayedColumns: string[] = ['fid', 'fname','requestor','description','modified','last_update','remove'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -41,7 +41,7 @@ export class FeaturesComponent implements OnInit {
 
   constructor() { 
      // Create 100 users
-     const features = Array.from({length: 100}, (_, k) => createNewFeature(k + 1));
+     const features = Array.from({length: 100}, (_, k) => createNewFeature());
      
 
      // Assign the data to the data source for the table to render
@@ -73,7 +73,7 @@ export class FeaturesComponent implements OnInit {
 
 
 /** Builds and returns a new User. */
-function createNewFeature(fid: number): UserData {
+function createNewFeature(): UserData {
   const requestor =
       REQUESTORS[Math.round(Math.random() * (REQUESTORS.length - 1))] + ' ' +
       REQUESTORS[Math.round(Math.random() * (REQUESTORS.length - 1))].charAt(0) + '.';
@@ -86,9 +86,11 @@ function createNewFeature(fid: number): UserData {
       const lastupadted =
       LASTUPDATED[Math.round(Math.random() * (LASTUPDATED.length - 1))] + ' ';
  
+      const fid =
+      FID[Math.round(Math.random() * (FID.length - 1))] + ' ';
 
   return {
-    fid: fid.toString(),
+    fid: fid,
     features: features,
     requestor: requestor,
     description: description,

@@ -1,0 +1,65 @@
+h2 {
+    flex:auto;
+    background-color: rgb(30, 30, 34);
+    height: 40px;
+    color: rgb(255, 255, 255);
+    padding-top: 0.5%;  
+    padding-left: 2%;
+    width: 19%;
+    
+
+  }
+
+  table {
+    width: 100%;
+    
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 10%;
+  }
+  .headercell{
+      height: 30px;
+      background-color: rgb(39, 40, 66);
+      color: azure
+  }
+  .progress1{
+      width:40%;
+      background-color:rgb(172, 0, 0);
+  }
+
+  .backlog-filter{
+      width:12%;
+      padding-left: 2%;
+  }
+  .tablelayout{
+      width:96%;
+      padding-left: 2%;
+  }
+  .backlogsdialog{
+      
+  }
+
+  ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label {
+    color:Blue;
+    font-size: larger;
+    
+      }
+    
+    
+
+  ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    color:Blue;
+    font-size: larger;
+    font-weight: bolder;
+      }
+    
+    /* ink bar */
+    ::ng-deep .mat-ink-bar {
+    background-color: var(--primary-color,#1F89CE) !important;
+    }

@@ -1,0 +1,388 @@
+
+<mat-tab-group backgroundColor="none" mat-stretch-tabs>
+    <mat-tab label="Issue Details" class="container" >
+        
+        <mat-card  style="margin:20px;" class="mat-elevation-z5" >            
+            <mat-toolbar color="primary">
+                <mat-toolbar-row>
+                          <span class="example-spacer"></span>
+                          <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+                          <span>Issue Details</span>
+                </mat-toolbar-row>
+              </mat-toolbar>
+              <br>
+      <div class="setform" [hidden]="submitted">
+      <mat-dialog-content class="mat-typography">
+        <form class="example-form" (ngSubmit)="onSubmit()">
+                    <!-- feature name -->
+                    <mat-form-field class="example-full-width25">
+                        <mat-select placeholder="Ticket #"  name="ticketId" required>
+                          <mat-option *ngFor="let ticket of Tickets" [value]="ticket.value">
+                          {{ticket.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+      
+                    <!-- select -->
+                    <mat-form-field class="example-full-width25">
+                        <mat-select placeholder="Issue Type" name="issueType" required>
+                          <mat-option *ngFor="let issueType of issueTypes" [value]="issueType.value">
+                          {{issueType.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field class="example-full-width25">
+                          <mat-select placeholder="Stage" name="stage" required>
+                            <mat-option *ngFor="let stage of stages" [value]="stage.value">
+                            {{stage.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+  
+                        <mat-form-field class="example-full-width25">
+                            <mat-select placeholder="Priority" name="priority" required>
+                              <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+                              {{priority.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <br><br>
+
+                          <mat-form-field class="example-full-width25">
+                              <mat-select placeholder="Assigned To"  name="assignedTo" required>
+                                <mat-option *ngFor="let assigned of assignedTo" [value]="assigned.value">
+                                {{assigned.viewValue}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+
+                    <mat-form-field class="example-full-width25">
+                        <mat-select placeholder="Status"  name="status" required>
+                          <mat-option *ngFor="let status of statuses" [value]="status.value">
+                          {{status.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    
+                      <mat-form-field class="example-full-width25">
+                          <mat-select placeholder="Root Cause"  name="rootcause">
+                            <mat-option *ngFor="let rootcause of rootcauses" [value]="rootcause.value">
+                            {{rootcause.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <br><br>
+                    
+                    
+                    <mat-form-field class="example-full-width2">
+                      <input matInput placeholder="Title" id="title"  name="title" value="" required>
+                      
+                    </mat-form-field>
+    
+                    <br><br>
+                    <!-- description -->
+                    <mat-form-field class="example-full-width2">
+                      <textarea matInput placeholder="Description" id="description"  name="description" style="height: 150px;"  required></textarea>
+                    </mat-form-field>
+                  
+                     <br><br>
+      
+                    <div class="container">Attachment
+                          <button mat-button color="warn" (click)="onClick()">
+                              <mat-icon>file_upload</mat-icon>
+                              {{text}}
+                          </button>
+                      <br/>
+                      <ul>
+                        <li *ngFor="let file of files" [@fadeInOut]="file.state">
+                          <mat-progress-bar [value]="file.progress"></mat-progress-bar>
+                           <span id="file-label">
+                            {{file.data.name}}
+                              <a title="Retry" (click)="retryFile(file)" *ngIf="file.canRetry">
+                                <mat-icon>refresh</mat-icon>
+                              </a>
+                              <a title="Cancel" (click)="cancelFile(file)" *ngIf="file.canCancel">
+                                <mat-icon>cancel</mat-icon>
+                              </a>
+                            </span>
+                          </li>
+                       </ul>
+                  
+                      <input type="file" id="fileUpload" name="fileUpload" multiple="multiple" accept="{{accept}}" style="d`play:none;" />
+                      
+                    </div>
+     
+      
+                    <br><br>
+                    <!-- buttons -->
+                    
+                  <mat-dialog-actions class="primary" >
+                      <button mat-flat-button color="primary" [routerLink]="['/']" >Cancel Issue</button>&nbsp;
+                      <button type="submit" mat-raised-button color="primary"  >Update Issue</button>&nbsp;
+                      
+                  </mat-dialog-actions>
+            </form>
+          </mat-dialog-content>
+        </div>
+    
+        <!--display success message-->
+        <div [hidden]="!submitted">
+            <h4>You submitted successfully!</h4>
+            <mat-dialog-actions class="buttons">
+                <button mat-flat-button color="warn" [routerLink]="['/']" >Create again</button>&nbsp;
+                
+            </mat-dialog-actions>
+          </div>
+    <br/>
+    
+    
+      </mat-card>
+
+    </mat-tab>
+    
+    <mat-tab label="Attachment">
+        
+          <mat-card  style="margin:20px;" class="mat-elevation-z5" >
+              <mat-toolbar color="primary">
+                  <mat-toolbar-row>
+                            <span class="example-spacer"></span>
+                            <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+                            <span>Attachments</span>
+      
+                            
+                  </mat-toolbar-row>
+                </mat-toolbar>
+                <br>
+          <div class="setform" [hidden]="submitted">
+            <mat-dialog-content class="mat-typography">
+              <form class="example-form" (ngSubmit)="onSubmit()">
+          <div class="container">Attachment
+            <button mat-button color="warn" (click)="onClick()">
+                <mat-icon>file_upload</mat-icon>
+                {{text}}
+            </button>
+        <br/>
+        <ul>
+          <li *ngFor="let file of files" [@fadeInOut]="file.state">
+            <mat-progress-bar [value]="file.progress"></mat-progress-bar>
+             <span id="file-label">
+              {{file.data.name}}
+                <a title="Retry" (click)="retryFile(file)" *ngIf="file.canRetry">
+                  <mat-icon>refresh</mat-icon>
+                </a>
+                <a title="Cancel" (click)="cancelFile(file)" *ngIf="file.canCancel">
+                  <mat-icon>cancel</mat-icon>
+                </a>
+              </span>
+            </li>
+         </ul>
+    
+        <input type="file" id="fileUpload" name="fileUpload" multiple="multiple" accept="{{accept}}" style="d`play:none;" />
+        
+      </div>
+              </form>
+            </mat-dialog-content>
+          </div>
+          <br><br>
+
+          <mat-form-field class="backlog-filter">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Quick Search">
+          </mat-form-field>
+          
+          <mat-icon>search</mat-icon>
+      
+          
+          <div class="mat-elevation-z8" class="tablelayout">
+                  <table mat-table [dataSource]="dataSource1" matSort>
+      
+                     
+                     
+      
+                    <!-- Log -->
+                      <ng-container matColumnDef="comments">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Attachment  </th>
+                      <td mat-cell *matCellDef="let row" > {{row.comments}}.png </td>
+                      </ng-container>
+      
+                    <!-- Log Type -->
+                      <ng-container matColumnDef="user">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> User </th>
+                      <td mat-cell *matCellDef="let row"> {{row.user}} </td>
+                      </ng-container>
+                      
+                      
+      
+                    <!-- Created Date -->
+                       <ng-container matColumnDef="createdDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Created Date</th>
+                        <td mat-cell *matCellDef="let row"> 
+                          {{row.createdDate}} </td>
+                        </ng-container>
+  
+                       
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns1;">
+                    </tr>
+                  </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"></mat-paginator>
+          </div>
+          </mat-card>
+
+      <br><br>
+    </mat-tab>
+    <mat-tab label="View Comments">
+        
+
+          <mat-card  style="margin:20px;" class="mat-elevation-z5" >
+              <mat-toolbar color="primary">
+                  <mat-toolbar-row>
+                            <span class="example-spacer"></span>
+                            <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+                            <span>View Comments</span>
+                  </mat-toolbar-row>
+                </mat-toolbar>
+                <br>
+            <div class="setform" [hidden]="submitted">
+              <mat-dialog-content class="mat-typography">
+        <div class="setform" [hidden]="submitted">
+            <mat-dialog-content class="mat-typography">
+              <form class="example-form" (ngSubmit)="onSubmit()">
+                          <!-- feature name -->
+                          <mat-form-field class="example-full-width2">
+                              <textarea matInput placeholder="Add Comments" id="description"  name="description" style="height: 50px;"  required></textarea>
+                            </mat-form-field>
+                          
+                             <br><br>
+
+                             <mat-dialog-actions class="primary" >
+                                <button mat-flat-button color="primary" [routerLink]="['/']" >Reset</button>&nbsp;
+                                <button type="submit" mat-raised-button color="primary"  >Add Comment</button>&nbsp;
+                                
+                            </mat-dialog-actions>
+              </form>
+            </mat-dialog-content>
+        </div>
+
+        <br><br>
+        <mat-form-field class="backlog-filter">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Quick Search">
+          </mat-form-field>
+          
+          <mat-icon>search</mat-icon>
+      
+          
+          <div class="mat-elevation-z8" class="tablelayout">
+                  <table mat-table [dataSource]="dataSource1" matSort>
+      
+                     
+                     
+      
+                    <!-- Log -->
+                      <ng-container matColumnDef="comments">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Comments  </th>
+                      <td mat-cell *matCellDef="let row" > {{row.comments}} </td>
+                      </ng-container>
+      
+                    <!-- Log Type -->
+                      <ng-container matColumnDef="user">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> User </th>
+                      <td mat-cell *matCellDef="let row"> {{row.user}} </td>
+                      </ng-container>
+                      
+                      
+      
+                    <!-- Created Date -->
+                       <ng-container matColumnDef="createdDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Created Date</th>
+                        <td mat-cell *matCellDef="let row"> 
+                          {{row.createdDate}} </td>
+                        </ng-container>
+  
+                       
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns1;">
+                    </tr>
+                  </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"></mat-paginator>
+          </div>
+
+              </mat-dialog-content>
+            </div>
+          </mat-card>
+      
+      </mat-tab>
+      
+    <mat-tab label="Log History">
+
+        
+
+          <mat-card  style="margin:20px;" class="mat-elevation-z5" >
+              <mat-toolbar color="primary">
+                  <mat-toolbar-row>
+                            <span class="example-spacer"></span>
+                            <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+                            <span>Log History</span>
+                  </mat-toolbar-row>
+                </mat-toolbar>
+                <br>
+            <div class="setform" [hidden]="submitted">
+              <mat-dialog-content class="mat-typography">
+        <mat-form-field class="backlog-filter">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Quick Search">
+          </mat-form-field>
+          
+          <mat-icon>search</mat-icon>
+      
+          
+          <div class="mat-elevation-z8" class="tablelayout">
+                  <table mat-table [dataSource]="dataSource" matSort>
+      
+                     
+                     
+      
+                    <!-- Log -->
+                      <ng-container matColumnDef="user">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> User  </th>
+                      <td mat-cell *matCellDef="let row" > {{row.user}} </td>
+                      </ng-container>
+      
+                    <!-- Log Type -->
+                      <ng-container matColumnDef="log">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Log </th>
+                      <td mat-cell *matCellDef="let row"> {{row.log}} </td>
+                      </ng-container>
+                      
+                      
+      
+                    <!-- Created Date -->
+                       <ng-container matColumnDef="createdDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="headercell"> Created Date</th>
+                        <td mat-cell *matCellDef="let row"> 
+                          {{row.createdDate}} </td>
+                        </ng-container>
+  
+                       
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </tr>
+                  </table>
+      
+        <mat-paginator [pageSizeOptions]="[25, 100]"></mat-paginator>
+          </div>
+
+              </mat-dialog-content>
+            </div>
+          </mat-card>
+      </mat-tab>
+      
+</mat-tab-group>
+
+    
+
+
+
+  
+  

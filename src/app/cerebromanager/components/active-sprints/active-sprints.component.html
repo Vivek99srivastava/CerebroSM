@@ -1,5 +1,12 @@
-<br>
-<mat-card class="io" fxLayoutAlign="start stretch"><h3>Active Sprints</h3></mat-card>
+
+      <mat-card  style="margin:20px;" class="mat-elevation-z5" >
+          <mat-toolbar color="primary">
+              <mat-toolbar-row>
+                        <span class="example-spacer"></span>
+                        <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+                        <span>Active Sprints</span>
+              </mat-toolbar-row>
+            </mat-toolbar>
 <br>
 
 <mat-card>
@@ -10,9 +17,30 @@
         {{data.data.length}}</div>
       </div>
       <div class="kanban-data-container" *ngFor="let taskData of data.data">
-        <div>{{taskData.status}}</div>
-        <div>{{taskData.id}}</div>
-        <div>{{taskData.title}}</div>
+        <table class="table" style="width: 90%">
+          <tr>
+            <td>Item Id : <a [routerLink]="['../user-story-details']">{{taskData.id}}</a></td>
+          </tr>
+          <tr><td><br></td></tr>
+          <tr><td>Feature : {{taskData.title}}</td>
+            <td>Story points : <input matInput  id="storypoints"  name="storypoints" style="width: 50px"></td></tr>
+            <tr><td><br></td></tr>
+          <tr><td>Status :                  <select matNativeControl>
+              <option value="volvo">To Do</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select></td>
+                <td>Assigned To :                    
+                    <select matNativeControl>
+                      <option value="volvo">Amol</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                  </td></tr>
+        </table>
+        
       </div>
     </div>
   </div>

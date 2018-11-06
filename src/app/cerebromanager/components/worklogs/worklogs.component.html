@@ -1,7 +1,12 @@
-<br>
-<mat-card class="io" fxLayoutAlign="start stretch"><h3>Worklogs</h3></mat-card>
-<br>
-<div> 
+<mat-card  style="margin:20px;" class="mat-elevation-z5" >
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+                  <span class="example-spacer"></span>
+                  <mat-icon class="example-icon">speaker_notes</mat-icon>&nbsp;&nbsp;
+                  <span>WorkLogs</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <br> 
 
 <h4>OverAll Work done-55%</h4>
 <mat-progress-bar mode="determinate" value="55" color="warn" class="progress"></mat-progress-bar>
@@ -14,7 +19,7 @@
         </mat-select>
       </mat-form-field>
  
-    <mat-form-field>
+    <mat-form-field class="dropdownlabel">
       <mat-select placeholder="User Story">
         <mat-option *ngFor="let user of users" [value]="user.value1">
           {{user.viewValue1}}
@@ -22,11 +27,75 @@
       </mat-select>
     </mat-form-field>
    
-        <mat-form-field>
+        <mat-form-field class="dropdownlabel">
           <mat-select placeholder="Status">
           To do
           </mat-select>
         </mat-form-field>
       </div>
      
-      
+      <br>
+      <table>
+      </table>
+
+
+<div class="mat-elevation-z8" class="tablelayout">
+      <table mat-table [dataSource]="dataSource" >
+        
+          Position Column
+          <ng-container matColumnDef="activity">
+            <th mat-header-cell *matHeaderCellDef class="hearderCell"> Task Name. </th>
+          </ng-container>
+
+          <ng-container matColumnDef="progress">
+              <th mat-header-cell *matHeaderCellDef class="hearderCell"> Progress. </th>
+            </ng-container>
+
+          
+            <ng-container matColumnDef="comments">
+                <th mat-header-cell *matHeaderCellDef class="hearderCell"> Comments. </th>
+            </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="hearderCell"> &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              
+              Action. </th>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        </table> 
+
+
+
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;UI DEVELOPMENT</td>
+            <td> <mat-slider class="example-margin" [(ngModel)]="value1"></mat-slider>{{value1}}%</td> 
+            <td><textarea matInput placeholder="Comments" id="description"  name="description"></textarea></td>
+            <td><button mat-raised-button color="primary" class="updatebutton">Update</button></td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;DATABASE DEVELOPMENT</td>
+            <td> <mat-slider class="example-margin" [(ngModel)]="value2"></mat-slider>{{value2}}%</td> 
+            <td><textarea matInput placeholder="Comments" id="description"  name="description"></textarea></td>
+            <td><button mat-raised-button color="primary" class="updatebutton">Update</button></td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;BACKEND DEVELOPMENT</td>
+            <td> <mat-slider class="example-margin" [(ngModel)]="value3"></mat-slider>{{value3}}%</td> 
+            <td> <textarea matInput placeholder="Comments" id="description"  name="description"></textarea></td>
+            <td><button mat-raised-button color="primary" class="updatebutton">Update</button></td>   
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;UNIT TESTING</td>
+            <td> <mat-slider class="example-margin" [(ngModel)]="value4"></mat-slider>{{value4}}%</td> 
+            <td><textarea matInput placeholder="Comments" id="description"  name="description"></textarea></td>
+            <td><button mat-raised-button color="primary" class="updatebutton">Update</button></td>       
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;SYSTEM TESTING</td>
+            <td> <mat-slider class="example-margin" [(ngModel)]="value5"></mat-slider>{{value5}}%</td> 
+            <td><textarea matInput placeholder="Comments" id="description"  name="description"></textarea></td>
+            <td><button mat-raised-button color="primary" class="updatebutton">Update</button></td>                  
+        </tr>
+      </div>       

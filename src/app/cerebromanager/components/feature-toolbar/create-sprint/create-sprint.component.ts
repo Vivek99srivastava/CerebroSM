@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators , FormGroup} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import {MatTableDataSource} from '@angular/material';
 
 export interface Application1 {
@@ -16,16 +16,14 @@ export interface PeriodicElement {
 
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Vivek', weight: 1.0079, symbol: 'ux'},
-  {position: 2, name: 'Amol', weight: 4.0026, symbol: 'db'},
-  {position: 3, name: 'Sana', weight: 6.941, symbol: 'web'},
-  // {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  // {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  // {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  // {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  // {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  // {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  // {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {position: 1, name: 'Vivek', weight: 1, symbol: 'ux'},
+  {position: 2, name: 'Amol', weight: 4, symbol: 'db'},
+  {position: 3, name: 'Sana', weight: 6, symbol: 'web'},
+   {position: 4, name: 'Beryllium', weight: 9, symbol: 'Be'},
+   {position: 5, name: 'Boron', weight: 2, symbol: 'B'},
+   {position: 6, name: 'Carbon', weight: 2, symbol: 'C'},
+   {position: 7, name: 'Nitrogen', weight: 4, symbol: 'N'},
+   
 ];
 
 
@@ -41,16 +39,6 @@ export class CreateSprintComponent implements OnInit {
   sname = new FormControl('', [Validators.required]);
   minDate = new Date(2000, 0, 1);
   maxDate = new Date(2020, 0, 1);
-
-  
-  createsprint = new FormGroup({
-    application1 : new FormControl(''),
-    sname : new FormControl(''),
-    sdate : new FormControl(''),
-    edate : new FormControl(''),
-   
-    
-  });
 
   getErrorsnameMessage(){
     return this.sname.hasError('required') ? 'You must enter sprint name' :'';
@@ -75,12 +63,5 @@ export class CreateSprintComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onSubmit() {
-    // this.submitted = true;
-    // this.save();
-    console.log(this.createsprint.value);
-  }
-
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators, FormGroup} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 export interface Feature {
   value: string;
   viewValue: string;
@@ -16,20 +16,6 @@ export class CreateUserStoryComponent implements OnInit {
   fname = new FormControl('', [Validators.required]);
   description = new FormControl('', [Validators.required]);
   selectedValue: string;
-
-
-  createuserstory = new FormGroup({
-    fnames : new FormControl(''),
-    priority : new FormControl(''),
-    requestor : new FormControl(''),
-    email : new FormControl(''),
-    aemail : new FormControl(''),
-    phone : new FormControl(''),
-    description : new FormControl(''),
-    
-  });
-
-
 
   getErrordescribe(){
     return this.fname.hasError('required') ? 'Description required' :'';
@@ -55,12 +41,6 @@ export class CreateUserStoryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onSubmit() {
-    // this.submitted = true;
-    // this.save();
-    console.log(this.createuserstory.value);
   }
 
 }

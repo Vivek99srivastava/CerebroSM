@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
-import {FormControl, Validators, FormGroup} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import { Observable } from 'rxjs';
 
 export interface Features {
@@ -26,13 +26,6 @@ export class CreateFeatureComponent implements OnInit {
   features1: Observable<Feature[]>;
   fname = new FormControl('', [Validators.required]);
 
-  featurescreate = new FormGroup({
-    tfname : new FormControl(''),
-    tfeature : new FormControl(''),
-    description : new FormControl(''),
-    
-  });
-
   feature: Feature = new Feature();
   submitted = false;
 
@@ -41,13 +34,12 @@ export class CreateFeatureComponent implements OnInit {
     return this.fname.hasError('required') ? 'You must enter Feature name' :'';
   }
 
-
-
   features: Features[] = [
     {value: 'steak-0',viewValue: 'Cerebros'},
     {value: 'steak-1',viewValue: 'Warp'},
     {value: 'tacos-2',viewValue: 'Steak'}
   ];
+  
   constructor(private featureService: UserService) { }
 
   ngOnInit() {
@@ -65,9 +57,9 @@ export class CreateFeatureComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.submitted = true;
-    // this.save();
-    console.log(this.featurescreate.value);
+    this.submitted = true;
+    this.save();
+
   }
 
   reloadData() {

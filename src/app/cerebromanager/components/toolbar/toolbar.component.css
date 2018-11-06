@@ -36,3 +36,11 @@ $iconWidth: 56px;
 .toolbar{
   position: relative;
 }
+
+.example-icon {
+  padding: 0 10px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
